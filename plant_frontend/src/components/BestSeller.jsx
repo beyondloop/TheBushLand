@@ -45,7 +45,7 @@ const bestsellers = [
     rating: 4.85,
     reviews: 164,
     price: 299,
-    oldPrice: 599,
+    oldPrice: 599,  
     slug: "snake-plant",
   },
 ];
@@ -53,10 +53,13 @@ const bestsellers = [
 const Bestsellers = () => {
   const navigate = useNavigate();
 
-  const handleViewProduct = (product) => {
-    // Pass the full product data via state
-    navigate(`/product/${product.slug}`, { state: product });
-  };
+  // const handleViewProduct = (product) => {
+  //   // Pass the full product data via state
+  //   navigate(`/product/${product.slug}`, { state: product });
+  // };
+  const handleViewProduct = (bestsellers) => {
+  navigate(`/product/${bestsellers.id}`, { state: bestsellers });
+};
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
