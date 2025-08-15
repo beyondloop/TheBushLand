@@ -23,7 +23,7 @@ export default function ProductPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <div className="flex flex-col md:flex-row gap-8">
-        <ProductGallery images={product.images} />
+        <ProductGallery images={product.image} />
         <ProductInfo product={product} />
       </div>
 

@@ -2,68 +2,56 @@
 const products = [
   {
     id: "1",
-    name: "Snake Plant - Golden",
-    rating: 4,
-    reviewsCount: 65,
-    price: 399,
-    originalPrice: 599,
-    variants: ["Black Pot", "White Pot"],
-    selectedVariant: "Black Pot",
-    offers: ["15% OFF on prepaid orders"],
-    images: [
-      "/images/snake1.jpg",
-      "/images/snake2.jpg",
-      "/images/snake3.jpg"
-    ],
-    frequentlyBoughtTogether: [
-      {
-        id: "2",
-        name: "Ceramic White Pot",
-        price: 299,
-        image: "/images/ceramic-pot.jpg"
-      },
-      {
-        id: "3",
-        name: "Organic Potting Mix",
-        price: 199,
-        image: "/images/potting-mix.jpg"
-      }
-    ],
-    details: {
-      about:
-        "The Snake Plant Golden is a hardy indoor plant known for its striking green leaves with golden edges. It's low-maintenance and an excellent air purifier.",
-      whatsInBox: "1 Snake Plant Golden in selected pot, care guide.",
-      careTips:
-        "Place in indirect sunlight, water lightly every 2-3 weeks, avoid overwatering.",
-      faqs:
-        "Q: Is the Snake Plant safe for pets? A: It can be mildly toxic to pets if ingested."
-    }
+    name: "Peace Lily Plant",
+    slug: "peace-lily",
+    price: 799,
+    oldPrice: 999,
+    discount: "20%",
+    rating: 4.5,
+    reviews: 120,
+    image: "src/Image/peacelily.avif",
+    description:
+      "A beautiful indoor plant that purifies the air and adds elegance to your space.",
   },
   {
     id: "2",
+    name: "Jade Plant Mini",
+    slug: "jade-plant-mini",
+    price: 299,
+    oldPrice: 399,
+    discount: "25%",
+    rating: 4.2,
+    reviews: 90,
+    image: "src/Image/jade.avif",
+    description:
+      "A small, easy-to-care succulent perfect for desks and tabletops.",
+  },
+  {
+    id: "3",
     name: "Areca Palm Plant",
-    rating: 5,
-    reviewsCount: 120,
-    price: 799,
-    originalPrice: 999,
-    variants: ["White Pot"],
-    selectedVariant: "White Pot",
-    offers: ["Free shipping on this product"],
-    images: [
-      "/images/areca1.jpg",
-      "/images/areca2.jpg"
-    ],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "The Areca Palm is a lush, tropical plant that adds elegance to any indoor space while improving air quality.",
-      whatsInBox: "1 Areca Palm in selected pot, care guide.",
-      careTips:
-        "Keep in bright indirect light, water when topsoil feels dry, mist leaves occasionally.",
-      faqs:
-        "Q: Can Areca Palm grow outdoors? A: Yes, in mild climates with indirect sunlight."
-    }
-  }
+    slug: "areca-palm",
+    price: 999,
+    oldPrice: 1299,
+    discount: "23%",
+    rating: 4.8,
+    reviews: 150,
+    image: "src/Image/areca palm.avif",
+    description:
+      "A tropical palm that thrives indoors and improves air quality.",
+  },
+  {
+    id: "4",
+    name: "Snake Plant - Golden",
+    slug: "snake-plant-golden",
+    price: 699,
+    oldPrice: 899,
+    discount: "22%",
+    rating: 4.7,
+    reviews: 200,
+    image: "src/Image/snake.avif",
+    description:
+      "Low-maintenance plant with striking golden-edged leaves.",
+  },
 ];
 
 export default products;
