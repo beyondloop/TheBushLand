@@ -1,6 +1,7 @@
 // src/components/Bestsellers.jsx
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const bestsellers = [
   {
@@ -12,6 +13,7 @@ const bestsellers = [
     reviews: 385,
     price: 299,
     oldPrice: 399,
+    slug: "peace-lily",
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ const bestsellers = [
     reviews: 380,
     price: 279,
     oldPrice: 299,
+    slug: "jade-plant-mini",
   },
   {
     id: 3,
@@ -32,6 +35,7 @@ const bestsellers = [
     reviews: 171,
     price: 299,
     oldPrice: 499,
+    slug: "bamboo-palm",
   },
   {
     id: 4,
@@ -42,10 +46,18 @@ const bestsellers = [
     reviews: 164,
     price: 299,
     oldPrice: 599,
+    slug: "snake-plant",
   },
 ];
 
 const Bestsellers = () => {
+  const navigate = useNavigate();
+
+  const handleViewProduct = (product) => {
+    // Pass the full product data via state
+    navigate(`/product/${product.slug}`, { state: product });
+  };
+
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-2xl font-bold text-center mb-8">Bestsellers</h2>
@@ -90,15 +102,18 @@ const Bestsellers = () => {
                 </div>
               </div>
 
-              <button className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 mt-4 rounded">
+              <button
+                onClick={() => handleViewProduct(item)}
+                className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 mt-4 rounded"
+              >
                 View Product
               </button>
             </div>
           </div>
-          
         ))}
       </div>
-        {/* View All Button */}
+
+      {/* View All Button */}
       <div className="mt-8 flex justify-center">
         <button className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">
           View All
