@@ -79,7 +79,7 @@ export default function ProductInfo({ product }) {
           placeholder="Enter Pincode"
           className="border rounded-md px-3 py-2 w-40"
         />
-        <button className="text-green-700 font-semibold">Check</button>
+        <button className="text-green-700 font-semibold">Check</button> 
       </div>
 
       {/* Offers */}

@@ -1,6 +1,5 @@
-// src/pages/ProductPage.jsx
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import ProductGallery from "../View Page/ProductGallery";
 import ProductInfo from "../View Page/ProductInfo";
 import FrequentlyBoughtTogether from "../View Page/FrequentlyBoughtTogether";
@@ -8,8 +7,16 @@ import ProductTabs from "../Accordion/ProductTabs";
 import products from "../Constant/productData";
 
 export default function ProductPage() {
-  const { id } = useParams();
-  const product = products.find((p) => p.id === id);
+  const { id } = useParams(); // matches route param
+  const location = useLocation();
+
+  // First try getting product from state
+  let product = location.state;
+
+  // If state is missing (direct URL), find by id
+  if (!product) {
+    product = products.find((p) => p.id === id); // remove Number() if ids are strings
+  }
 
   if (!product) {
     return (
@@ -23,15 +30,18 @@ export default function ProductPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <div className="flex flex-col md:flex-row gap-8">
-        <ProductGallery images={product.image} />
+        {/* Ensure images is an array for ProductGallery */}
+        <ProductGallery images={Array.isArray(product.image) ? product.image : [product.image]} />
         <ProductInfo product={product} />
       </div>
 
       {/* Frequently Bought Together */}
-      <FrequentlyBoughtTogether items={product.frequentlyBoughtTogether} />
+      {product.frequentlyBoughtTogether && (
+        <FrequentlyBoughtTogether items={product.frequentlyBoughtTogether} />
+      )}
 
       {/* Product Tabs */}
-      <ProductTabs details={product.details} />
+      {product.details && <ProductTabs details={product.details} />}
     </div>
   );
 }

@@ -7,7 +7,7 @@ import products from "../Constant/productData";
 // Optional: Take top 4 products as bestsellers
 const bestsellers = products.slice(0, 4);
 
-const Bestsellers = () => {
+const Bestsellers = () => { 
   const navigate = useNavigate();
 
   const handleViewProduct = (product) => {

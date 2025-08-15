@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Header from '../components/Header';
 import CategoryBar from '../components/CategoryBar';
 import HeroSlider from '../components/HeroSlider';
 import FeaturedProducts from '../components/FeaturedProducts';
@@ -12,13 +11,11 @@ import Accessories from '../components/Accessories';
 import NewArrivals from '../components/NewArrivals';
 import Testimonials from '../components/Testimonials';
 import PlantOffers from '../components/PlantOffers';
-import Footer from '../components/Footer';
 
 
 const HomePage = () => {
   return (
     <>
-      <Header />
       <CategoryBar />
       <HeroSlider />
       <FeaturedProducts />
@@ -30,7 +27,7 @@ const HomePage = () => {
       <NewArrivals />
       <Testimonials />
       <PlantOffers />
-      <Footer />
+      
     
     </>
   );
