@@ -12,7 +12,7 @@ export default function ProductGallery({ images }) {
         <img
           src={selectedImage}
           alt="Product"
-          className="w-full h-[450px] object-contain"
+          className="w-full h-auto object-cover"
         />
       </div>
 
@@ -23,7 +23,7 @@ export default function ProductGallery({ images }) {
             key={id}
             src={img}
             alt={`Thumbnail ${id}`}
-            className={`w-20 h-20 object-contain border rounded-md cursor-pointer ${
+            className={`w-20 h-20 object-cover border rounded-md cursor-pointer ${
               selectedImage === img ? "border-green-500" : "border-gray-300"
             }`}
             onClick={() => setSelectedImage(img)}
