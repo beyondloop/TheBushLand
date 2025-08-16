@@ -1,19 +1,12 @@
 // src/components/Bestsellers.jsx
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import products from "../Constant/productData";
+import ViewProductButton from "../Constant/ViewProductButton"; // import here
 
-// Optional: Take top 4 products as bestsellers
 const bestsellers = products.slice(0, 4);
 
-const Bestsellers = () => { 
-  const navigate = useNavigate();
-
-  const handleViewProduct = (product) => {
-    navigate(`/product/${product.name}`, { state: product });
-  };
-
+const Bestsellers = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-2xl font-bold text-center mb-8">Bestsellers</h2>
@@ -58,12 +51,8 @@ const Bestsellers = () => {
                 </div>
               </div>
 
-              <button
-                onClick={() => handleViewProduct(item)}
-                className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 mt-4 rounded"
-              >
-                View Product
-              </button>
+              {/* ✅ Use common button */}
+              <ViewProductButton product={item} />
             </div>
           </div>
         ))}

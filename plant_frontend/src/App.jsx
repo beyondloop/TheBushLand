@@ -4,6 +4,8 @@ import HomePage from './components/HomePage';
 import ProductPage from "./View Page/ProductPage";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AboutUs from './components/AboutUs';
+import AvailableOn from './components/AvailableOn';
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <Route path="/" element={<HomePage/>} />
         <Route path="/product/:idx" element={<ProductPage />} />
       </Routes>
+       <AvailableOn />
+      <AboutUs />
 <Footer />
     </Router>
   );
