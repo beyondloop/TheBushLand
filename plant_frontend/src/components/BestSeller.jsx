@@ -26,7 +26,7 @@ const Bestsellers = () => {
           >
             <div className="relative">
               <img
-                src={item.image}
+                src={item.images[0]}
                 alt={item.name}
                 className="w-full h-64 object-cover"
               />

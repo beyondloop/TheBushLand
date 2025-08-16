@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import products from "../Constant/productData";
 
 export default function ProductGallery({ images }) {
-  const [selectedImage, setSelectedImage] = useState(images[0]);
+  const [selectedImage, setSelectedImage] = useState(images);
 
   return (
     <div className="w-full md:w-1/2">

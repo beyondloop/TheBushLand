@@ -9,7 +9,7 @@ const products = [
     discount: "20%",
     rating: 4.5,
     reviews: 120,
-    image: "src/Image/peacelily.avif",
+    images: ["/src/Image/peacelily.avif"],
     description:
       "A beautiful indoor plant that purifies the air and adds elegance to your space.",
   },
@@ -22,7 +22,7 @@ const products = [
     discount: "25%",
     rating: 4.2,
     reviews: 90,
-    image: "src/Image/jade.avif",
+    images: ["/src/Image/jade.avif"],
     description:
       "A small, easy-to-care succulent perfect for desks and tabletops.",
   },
@@ -35,7 +35,7 @@ const products = [
     discount: "23%",
     rating: 4.8,
     reviews: 150,
-    image: "src/Image/areca palm.avif",
+    images: ["/src/Image/areca palm.avif"],
     description:
       "A tropical palm that thrives indoors and improves air quality.",
   },
@@ -48,7 +48,7 @@ const products = [
     discount: "22%",
     rating: 4.7,
     reviews: 200,
-    image: "src/Image/snake.avif",
+    images: ["/src/Image/snake.avif"],
     description:
       "Low-maintenance plant with striking golden-edged leaves.",
   },

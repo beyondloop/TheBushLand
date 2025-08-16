@@ -31,7 +31,7 @@ export default function ProductPage() {
     <div className="max-w-7xl mx-auto px-4 py-10">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Ensure images is an array for ProductGallery */}
-        <ProductGallery images={[product.image]} />
+        <ProductGallery images={product.images} />
 
         {/* Product Info */}
         <ProductInfo product={product} />
