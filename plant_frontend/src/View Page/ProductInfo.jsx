@@ -67,9 +67,14 @@ export default function ProductInfo({ product }) {
       </div>
 
       {/* Add to Cart */}
+      <div  className="flex gap-3">
       <button className="mt-5 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-semibold">
         Add to Cart
       </button>
+       <button className="mt-5 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-semibold">
+        Buy Now
+      </button>
+      </div>
 
       {/* Pincode Check */}
       <div className="flex items-center gap-2 mt-5">
