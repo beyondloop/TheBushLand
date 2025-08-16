@@ -11,7 +11,7 @@ const Header = () => {
     "Gardening",
     "Plant Care",
     "Gifts",
-    "Blogs",
+    "Candles & Fragnances",
   ];
 
   const navigate = useNavigate();

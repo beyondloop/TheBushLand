@@ -16,7 +16,6 @@ import PlantOffers from '../components/PlantOffers';
 const HomePage = () => {
   return (
     <>
-      <CategoryBar />
       <HeroSlider />
       <FeaturedProducts />
       <BannersSection />
