@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import ProductGallery from "../View Page/ProductGallery";
 import ProductInfo from "../View Page/ProductInfo";
@@ -9,6 +9,11 @@ import products from "../Constant/productData";
 export default function ProductPage() {
   const { id } = useParams(); // matches route param
   const location = useLocation();
+
+    // Scroll to top whenever ProductPage mounts OR id changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   // First try getting product from state
   let product = location.state;
