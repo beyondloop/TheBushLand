@@ -11,7 +11,7 @@ const Bestsellers = () => {
   const navigate = useNavigate();
 
   const handleViewProduct = (product) => {
-    navigate(`/product/${product.id}`, { state: product });
+    navigate(`/product/${product.name}`, { state: product });
   };
 
   return (
