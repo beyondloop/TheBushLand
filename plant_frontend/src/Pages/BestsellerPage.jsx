@@ -1,20 +1,22 @@
-// src/components/Bestsellers.jsx
+// src/pages/BestSellersPage.jsx
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import products from "../Constant/productData";
-import ViewProductButton from "../Constant/ViewProductButton"; // import here
 import { Link } from "react-router-dom";
+import products from "../Constant/productData";
+import ViewProductButton from "../Constant/ViewProductButton";
 
-const bestsellers = products.filter(p => p.category === "BestSeller"); // filter bestsellers
+const BestSellersPage = () => {
+  // 🔹 Pick products with id between 1 and 20
+  const bestSellerProducts = products.filter(
+    (item) => parseInt(item.id) >= 1 && parseInt(item.id) <= 20
+  );
 
-const Bestsellers = () => {
   return (
-    
     <section className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-2xl font-bold text-center mb-8">Bestsellers</h2>
+      <h2 className="text-2xl font-bold text-center mb-8">All Bestsellers</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {bestsellers.map((item) => (
+        {bestSellerProducts.map((item) => (
           <div
             key={item.id}
             className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col"
@@ -60,17 +62,17 @@ const Bestsellers = () => {
         ))}
       </div>
 
-      {/* View All Button */}
-<div className="mt-8 flex justify-center">
-  <Link
-    to="/bestsellers"
-    className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition"
-  >
-    View All
-  </Link>
-</div>
+      {/* Back Button */}
+      <div className="mt-8 flex justify-center">
+        <Link
+          to="/"
+          className="bg-gray-600 text-white px-6 py-2 rounded-full hover:bg-gray-700 transition"
+        >
+          Back to Home
+        </Link>
+      </div>
     </section>
   );
 };
 
-export default Bestsellers;
+export default BestSellersPage;

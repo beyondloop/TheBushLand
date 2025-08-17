@@ -1,470 +1,1152 @@
 
 const products = [
   {
-    id: "1",
-    name: "Snake Plant - Golden",
-    slug: "snake-plant-golden",
-    rating: 4.7,
-    reviewsCount: 200,
-    price: 699,
-    originalPrice: 899,
-    variants: ["Black Pot", "White Pot"],
-    selectedVariant: "Black Pot",
-    offers: ["22% OFF on prepaid orders"],
-    images: ["/src/Image/snake.avif"],
-    frequentlyBoughtTogether: [
-      {
-        id: "5",
-        name: "Ceramic White Pot",
-        price: 299,
-        image: "/images/ceramic-pot.jpg",
-      },
-      {
-        id: "6",
-        name: "Organic Potting Mix",
-        price: 199,
-        image: "/images/potting-mix.jpg",
-      },
-    ],
-    details: {
-      about:
-        "Low-maintenance plant with striking golden-edged leaves.",
-      whatsInBox: "1 Snake Plant Golden in selected pot, care guide.",
-      careTips:
-        "Place in indirect sunlight, water lightly every 2-3 weeks, avoid overwatering.",
-      faqs:
-        "Q: Is the Snake Plant safe for pets? A: It can be mildly toxic to pets if ingested.",
-    },
-  },
-  {
-    id: "2",
-    name: "Areca Palm Plant",
-    slug: "areca-palm",
-    rating: 4.8,
-    reviewsCount: 150,
-    price: 999,
-    originalPrice: 1299,
-    variants: ["White Pot"],
-    selectedVariant: "White Pot",
-    offers: ["Free shipping on this product"],
-    images: ["/src/Image/areca palm.avif"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "A tropical palm that thrives indoors and improves air quality.",
-      whatsInBox: "1 Areca Palm in selected pot, care guide.",
-      careTips:
-        "Keep in bright indirect light, water when topsoil feels dry, mist leaves occasionally.",
-      faqs:
-        "Q: Can Areca Palm grow outdoors? A: Yes, in mild climates with indirect sunlight.",
-    },
-  },
-  {
-    id: "3",
-    name: "Peace Lily Plant",
-    slug: "peace-lily",
-    rating: 4.5,
-    reviewsCount: 120,
-    price: 799,
-    originalPrice: 999,
-    variants: ["White Pot"],
-    selectedVariant: "White Pot",
-    offers: ["20% OFF today"],
-    images: ["/src/Image/peacelily.avif"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "A beautiful indoor plant that purifies the air and adds elegance to your space.",
-      whatsInBox: "1 Peace Lily in selected pot, care guide.",
-      careTips:
-        "Keep soil moist but not soggy, place in bright indirect light.",
-      faqs:
-        "Q: Does Peace Lily bloom indoors? A: Yes, with proper care it produces elegant white flowers.",
-    },
-  },
-  {
-    id: "4",
-    name: "Jade Plant Mini",
-    slug: "jade-plant-mini",
-    rating: 4.2,
-    reviewsCount: 90,
-    price: 299,
-    originalPrice: 399,
-    variants: ["Mini Pot"],
-    selectedVariant: "Mini Pot",
-    offers: ["25% OFF on prepaid orders"],
-    images: ["/src/Image/jade.avif"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "A small, easy-to-care succulent perfect for desks and tabletops.",
-      whatsInBox: "1 Jade Plant Mini in selected pot, care guide.",
-      careTips:
-        "Water sparingly, allow soil to dry between waterings, needs bright light.",
-      faqs:
-        "Q: Is Jade Plant good for gifting? A: Yes, it's considered a symbol of good luck and prosperity.",
-    },
-  },
-    // ✅ New Indoor Plant - Spider Plant
-  {
-    id: "5",
+    id: "10",
     name: "Spider Plant",
     slug: "spider-plant",
-    rating: 4.8,
-    reviewsCount: 120,
-    price: 299,
-    originalPrice: 399,
-    variants: ["Plastic Pot", "Ceramic Pot"],
-    selectedVariant: "Plastic Pot",
-    offers: ["25% OFF"],
+    category: "BestSeller",
+    rating: 4.6,
+    reviewsCount: 160,
+    price: 349,
+    originalPrice: 499,
+    variants: ["Hanging Pot", "Table Pot"],
+    selectedVariant: "Hanging Pot",
+    offers: ["15% OFF"],
     images: ["/src/Image/spider.avif"],
     frequentlyBoughtTogether: [],
     details: {
-      about:
-        "Spider Plants are hardy indoor plants that thrive in indirect light and are known for air-purifying qualities.",
+      about: "Air-purifying plant with long arching leaves and baby offshoots.",
       whatsInBox: "1 Spider Plant in selected pot, care guide.",
-      careTips:
-        "Water moderately, allow soil to partially dry, grows well in bright indirect light.",
-      faqs: "Q: Is Spider Plant safe for pets? A: Yes, it is non-toxic to cats and dogs.",
+      careTips: "Bright indirect light, water when soil feels dry.",
+      faqs: "Q: Does Spider Plant remove toxins? A: Yes, it’s known for air purification.",
     },
   },
-
-  // ✅ New Indoor Plant - Fiddle Leaf Fig
   {
-    id: "6",
-    name: "Fiddle Leaf Fig",
-    slug: "fiddle-leaf-fig",
-    rating: 4.7,
-    reviewsCount: 98,
-    price: 1299,
-    originalPrice: 1499,
-    variants: ["White Pot"],
-    selectedVariant: "White Pot",
-    offers: ["13% OFF"],
-    images: ["/src/Image/fiddlefig.avif"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "A popular indoor plant with large glossy leaves that makes a bold statement in any space.",
-      whatsInBox: "1 Fiddle Leaf Fig in selected pot, care guide.",
-      careTips:
-        "Needs bright indirect light, water when topsoil dries, avoid moving frequently.",
-      faqs: "Q: Can it grow outdoors? A: Yes, but only in warm, frost-free climates.",
-    },
-  },
-
-  // ✅ New Indoor Plant - ZZ Plant
-  {
-    id: "7",
-    name: "ZZ Plant",
-    slug: "zz-plant",
-    rating: 4.9,
-    reviewsCount: 150,
-    price: 799,
-    originalPrice: null,
-    variants: ["Black Pot"],
-    selectedVariant: "Black Pot",
-    offers: ["Low maintenance plant"],
-    images: ["/src/Image/zz.avif"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "ZZ Plant is a resilient, drought-tolerant indoor plant that thrives even in low light.",
-      whatsInBox: "1 ZZ Plant in selected pot, care guide.",
-      careTips:
-        "Water sparingly, can survive weeks without water, tolerates low light.",
-      faqs: "Q: Is ZZ Plant toxic? A: Yes, keep away from pets and children if ingested.",
-    },
-  },
-    // ✅ New Indoor Plant - Parlor Palm
-  {
-    id: "8",
-    name: "Parlor Palm",
-    slug: "parlor-palm",
-    rating: 4.6,
-    reviewsCount: 80,
-    price: 499,
-    originalPrice: 599,
-    variants: ["White Pot"],
-    selectedVariant: "White Pot",
-    offers: ["17% OFF"],
-    images: ["/src/Image/areca palm.avif"], // using same Areca image ref you provided
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "A classic indoor palm that is easy to grow and adapts well to low light, perfect for homes and offices.",
-      whatsInBox: "1 Parlor Palm in selected pot, care guide.",
-      careTips:
-        "Thrives in indirect light, water when soil is dry 1-2 inches deep, avoid direct sun.",
-      faqs:
-        "Q: Can Parlor Palm grow in shade? A: Yes, it’s one of the best low-light indoor plants.",
-    },
-  },
-
-  // ✅ New Indoor Plant - Rubber Plant
-  {
-    id: "9",
+    id: "11",
     name: "Rubber Plant",
     slug: "rubber-plant",
-    rating: 4.85,
-    reviewsCount: 105,
-    price: 599,
-    originalPrice: 799,
-    variants: ["Black Pot", "White Pot"],
-    selectedVariant: "Black Pot",
-    offers: ["25% OFF"],
+    category: "BestSeller",
+    rating: 4.7,
+    reviewsCount: 175,
+    price: 899,
+    originalPrice: 1199,
+    variants: ["Black Pot", "Ceramic Pot"],
+    selectedVariant: "Ceramic Pot",
+    offers: ["Free shipping"],
     images: ["/src/Image/rubber.avif"],
     frequentlyBoughtTogether: [],
     details: {
-      about:
-        "A stylish indoor plant with glossy, deep green leaves, known to improve air quality.",
+      about: "Bold, glossy leaves make this plant a statement piece indoors.",
       whatsInBox: "1 Rubber Plant in selected pot, care guide.",
-      careTips:
-        "Keep in bright indirect light, water moderately, wipe leaves regularly to keep them shiny.",
-      faqs:
-        "Q: Does Rubber Plant grow tall indoors? A: Yes, with proper care it can grow up to 6-10 feet indoors.",
-    },
-  },
-
-  // ✅ New Indoor Plant - Peace Lily (already exists as id:3 but this adds indoor variant)
-  {
-    id: "10",
-    name: "Peace Lily",
-    slug: "peace-lily-indoor",
-    rating: 4.85,
-    reviewsCount: 105,
-    price: 599,
-    originalPrice: 799,
-    variants: ["White Pot"],
-    selectedVariant: "White Pot",
-    offers: ["25% OFF"],
-    images: ["/src/Image/peacelily.avif"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "A popular flowering indoor plant with white blooms that also purifies the air.",
-      whatsInBox: "1 Peace Lily in selected pot, care guide.",
-      careTips:
-        "Keep soil slightly moist, thrives in bright indirect light, blooms more in higher humidity.",
-      faqs:
-        "Q: How often does Peace Lily bloom? A: With proper care, it blooms twice a year indoors.",
-    },
-  },
-
-  // ✅ New Indoor Plant - Tradescantia
-  {
-    id: "11",
-    name: "Tradescantia",
-    slug: "tradescantia",
-    rating: 4.85,
-    reviewsCount: 105,
-    price: 599,
-    originalPrice: 799,
-    variants: ["Ceramic Pot"],
-    selectedVariant: "Ceramic Pot",
-    offers: ["25% OFF"],
-    images: ["/src/Image/transcandia.avif"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "Tradescantia is a striking trailing plant with purple-green foliage, ideal for hanging pots.",
-      whatsInBox: "1 Tradescantia in selected pot, care guide.",
-      careTips:
-        "Prefers bright indirect light, water when soil is dry, pinch tips to encourage bushier growth.",
-      faqs:
-        "Q: Is Tradescantia good as a hanging plant? A: Yes, it looks beautiful in hanging baskets.",
+      careTips: "Prefers bright light, water moderately.",
+      faqs: "Q: Can Rubber Plant grow tall? A: Yes, it can reach several feet indoors.",
     },
   },
   {
     id: "12",
-    name: "Bougainvillea",
-    slug: "bougainvillea",
-    rating: 4.7,
-    reviewsCount: 85,
-    price: 349,
-    originalPrice: 449,
-    variants: ["Plastic Pot", "Clay Pot"],
-    selectedVariant: "Plastic Pot",
-    offers: ["22% OFF"],
-    images: ["/src/Image/bougainvillea.avif"],
+    name: "Fiddle Leaf Fig",
+    slug: "fiddle-leaf-fig",
+    category: "BestSeller",
+    rating: 4.4,
+    reviewsCount: 145,
+    price: 1299,
+    originalPrice: 1599,
+    variants: ["Large Pot"],
+    selectedVariant: "Large Pot",
+    offers: ["Flat 200 OFF"],
+    images: ["/src/Image/fiddlefig.avif"],
     frequentlyBoughtTogether: [],
     details: {
-      about:
-        "Bougainvillea is a vibrant outdoor flowering plant, perfect for gardens and balconies.",
-      whatsInBox: "1 Bougainvillea plant in selected pot, care guide.",
-      careTips:
-        "Thrives in full sunlight, water moderately, prune regularly to encourage blooming.",
-      faqs: "Q: Does Bougainvillea need fertilizer? A: Yes, monthly feeding helps better flowering.",
+      about: "Trendy indoor plant with large violin-shaped leaves.",
+      whatsInBox: "1 Fiddle Leaf Fig in pot, care guide.",
+      careTips: "Needs bright filtered light, keep soil evenly moist.",
+      faqs: "Q: Is it beginner friendly? A: Needs some care but rewarding.",
     },
   },
-
-  // ✅ Outdoor Plant - Hibiscus
   {
     id: "13",
-    name: "Hibiscus",
-    slug: "hibiscus",
-    rating: 4.6,
-    reviewsCount: 92,
+    name: "Pothos Plant",
+    slug: "pothos",
+    category: "BestSeller",
+    rating: 4.8,
+    reviewsCount: 210,
     price: 299,
-    originalPrice: 399,
-    variants: ["Clay Pot"],
-    selectedVariant: "Clay Pot",
-    offers: ["25% OFF"],
-    images: ["/src/Image/hibiscus.avif"],
+    originalPrice: 449,
+    variants: ["Hanging Pot"],
+    selectedVariant: "Hanging Pot",
+    offers: ["Buy 1 Get 1 50% OFF"],
+    images: ["/src/Image/pothos.avif"],
     frequentlyBoughtTogether: [],
     details: {
-      about:
-        "Hibiscus is a tropical flowering plant known for its large, colorful blossoms.",
-      whatsInBox: "1 Hibiscus plant in selected pot, care guide.",
-      careTips:
-        "Requires 4-6 hours of direct sunlight, water regularly, prefers well-drained soil.",
-      faqs: "Q: Can Hibiscus grow indoors? A: Best grown outdoors, but can adapt indoors with sunlight.",
+      about: "Fast-growing vine that purifies air and is very easy to grow.",
+      whatsInBox: "1 Pothos in selected container, care guide.",
+      careTips: "Thrives in low to bright light, water weekly.",
+      faqs: "Q: Can Pothos grow in water? A: Yes, it grows well in water jars too.",
     },
   },
-
-  // ✅ Outdoor Plant - Marigold
   {
     id: "14",
-    name: "Marigold",
-    slug: "marigold",
-    rating: 4.8,
-    reviewsCount: 110,
-    price: 199,
-    originalPrice: null,
+    name: "Calathea Plant",
+    slug: "calathea",
+    category: "BestSeller",
+    rating: 4.3,
+    reviewsCount: 95,
+    price: 799,
+    originalPrice: 999,
+    variants: ["Decor Pot"],
+    selectedVariant: "Decor Pot",
+    offers: ["10% OFF"],
+    images: ["/src/Image/calathea.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "Known as the prayer plant, with beautiful patterned leaves.",
+      whatsInBox: "1 Calathea in selected pot, care guide.",
+      careTips: "Keep soil moist, loves humidity.",
+      faqs: "Q: Do Calathea leaves move? A: Yes, they open and close with day/night.",
+    },
+  },
+  {
+    id: "15",
+    name: "Croton Plant",
+    slug: "croton",
+    category: "BestSeller",
+    rating: 4.5,
+    reviewsCount: 123,
+    price: 599,
+    originalPrice: 799,
     variants: ["Plastic Pot"],
     selectedVariant: "Plastic Pot",
-    offers: ["Bright outdoor flowering plant"],
-    images: ["/src/Image/marigold.avif"],
+    offers: ["20% OFF"],
+    images: ["/src/Image/croton.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "Bright, colorful foliage that adds vibrancy indoors.",
+      whatsInBox: "1 Croton plant in pot, care guide.",
+      careTips: "Needs bright indirect light, water when topsoil is dry.",
+      faqs: "Q: Does Croton need sunlight? A: Yes, for best color.",
+    },
+  },
+  {
+    id: "16",
+    name: "Succulent Mix Set",
+    slug: "succulent-set",
+    category: "BestSeller",
+    rating: 4.6,
+    reviewsCount: 80,
+    price: 499,
+    originalPrice: 699,
+    variants: ["Mini Pots"],
+    selectedVariant: "Mini Pots",
+    offers: ["Bundle Discount"],
+    images: ["/src/Image/succulentset.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "Set of assorted succulents for decoration.",
+      whatsInBox: "3 succulents in mini pots, care guide.",
+      careTips: "Needs bright light, water sparingly.",
+      faqs: "Q: Are succulents easy to grow? A: Yes, they are low maintenance.",
+    },
+  },
+  {
+    id: "17",
+    name: "Snake Plant Laurentii",
+    slug: "snake-plant-laurentii",
+    category: "BestSeller",
+    rating: 4.7,
+    reviewsCount: 188,
+    price: 799,
+    originalPrice: 999,
+    variants: ["Black Pot"],
+    selectedVariant: "Black Pot",
+    offers: ["Flat 150 OFF"],
+    images: ["/src/Image/snake.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "Variegated variety with yellow leaf edges.",
+      whatsInBox: "1 Snake Plant Laurentii, care guide.",
+      careTips: "Tolerates low light, water occasionally.",
+      faqs: "Q: Is Snake Plant beginner friendly? A: Absolutely.",
+    },
+  },
+  {
+    id: "18",
+    name: "Dracaena Plant",
+    slug: "dracaena",
+    category: "BestSeller",
+    rating: 4.4,
+    reviewsCount: 132,
+    price: 699,
+    originalPrice: 899,
+    variants: ["Decor Pot"],
+    selectedVariant: "Decor Pot",
+    offers: ["10% Cashback"],
+    images: ["/src/Image/dracaena.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "Elegant indoor plant with tall cane-like growth.",
+      whatsInBox: "1 Dracaena in pot, care guide.",
+      careTips: "Medium light, water moderately.",
+      faqs: "Q: Is Dracaena good for offices? A: Yes, it thrives indoors.",
+    },
+  },
+  {
+    id: "19",
+    name: "Cactus Mini",
+    slug: "cactus-mini",
+    category: "BestSeller",
+    rating: 4.1,
+    reviewsCount: 75,
+    price: 249,
+    originalPrice: 349,
+    variants: ["Small Pot"],
+    selectedVariant: "Small Pot",
+    offers: ["Flat 50 OFF"],
+    images: ["/src/Image/cactus.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "Low-maintenance mini cactus perfect for gifting.",
+      whatsInBox: "1 Cactus in pot, care guide.",
+      careTips: "Full sunlight, water rarely.",
+      faqs: "Q: Do cacti need sunlight? A: Yes, lots of direct light.",
+    },
+  },
+  {
+    id: "20",
+    name: "Parlor Palm",
+    slug: "parlor-palm",
+    category: "BestSeller",
+    rating: 4.6,
+    reviewsCount: 140,
+    price: 599,
+    originalPrice: 799,
+    variants: ["Plastic Pot", "Ceramic Pot"],
+    selectedVariant: "Ceramic Pot",
+    offers: ["15% OFF"],
+    images: ["/src/Image/parlorpalm.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "Compact palm with elegant fronds, great for indoors.",
+      whatsInBox: "1 Parlor Palm in pot, care guide.",
+      careTips: "Medium light, water when soil dries slightly.",
+      faqs: "Q: Is Parlor Palm safe for pets? A: Yes.",
+    },
+  },
+  // ✅ New Indoor Plant - Aloe Vera
+  {
+    id: "21",
+    name: "Aloe Vera",
+    slug: "aloe-vera",
+    category: "Indoor",
+    rating: 4.7,
+    reviewsCount: 140,
+    price: 299,
+    originalPrice: 399,
+    variants: ["Plastic Pot", "Terracotta Pot"],
+    selectedVariant: "Plastic Pot",
+    offers: ["25% OFF"],
+    images: ["/src/Image/aloevera.avif"],
     frequentlyBoughtTogether: [],
     details: {
       about:
-        "Marigold is a cheerful outdoor plant with bright yellow and orange blooms, easy to grow.",
-      whatsInBox: "1 Marigold plant in pot, care guide.",
+        "Aloe Vera is a healing indoor plant known for its medicinal properties and easy care.",
+      whatsInBox: "1 Aloe Vera in selected pot, care guide.",
       careTips:
-        "Needs full sunlight, water moderately, blooms best in well-drained soil.",
-      faqs: "Q: Is Marigold good for pest control? A: Yes, it naturally repels some insects.",
+        "Needs bright light, water sparingly, allow soil to dry between waterings.",
+      faqs: "Q: Can Aloe Vera be used for skin care? A: Yes, its gel is soothing and healing.",
     },
   },
 
-  // ✅ Outdoor Plant - Rose Plant
+  // ✅ New Indoor Plant - Money Plant (Pothos)
   {
-    id: "15",
-    name: "Rose Plant",
-    slug: "rose-plant",
+    id: "22",
+    name: "Money Plant",
+    slug: "money-plant",
+    category: "Indoor",
     rating: 4.9,
-    reviewsCount: 140,
+    reviewsCount: 200,
+    price: 349,
+    originalPrice: 449,
+    variants: ["Hanging Pot", "Plastic Pot"],
+    selectedVariant: "Hanging Pot",
+    offers: ["22% OFF"],
+    images: ["/src/Image/moneyplant.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Money Plant, also called Pothos, is a popular indoor vine plant believed to bring prosperity.",
+      whatsInBox: "1 Money Plant in selected pot, care guide.",
+      careTips:
+        "Thrives in low to bright light, water when topsoil dries, great for hanging baskets.",
+      faqs: "Q: Can Money Plant grow in water? A: Yes, it grows well in both water and soil.",
+    },
+  },
+
+  // ✅ New Indoor Plant - Boston Fern
+  {
+    id: "23",
+    name: "Boston Fern",
+    slug: "boston-fern",
+    category: "Indoor",
+    rating: 4.6,
+    reviewsCount: 90,
     price: 399,
     originalPrice: 499,
+    variants: ["Plastic Pot"],
+    selectedVariant: "Plastic Pot",
+    offers: ["20% OFF"],
+    images: ["/src/Image/bostonfern.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Boston Fern is a lush indoor plant with graceful fronds that improve air quality.",
+      whatsInBox: "1 Boston Fern in selected pot, care guide.",
+      careTips:
+        "Needs indirect light, mist regularly, keep soil moist but not soggy.",
+      faqs: "Q: Is Boston Fern pet-safe? A: Yes, it is safe for cats and dogs.",
+    },
+  },
+
+  // ✅ New Indoor Plant - Calathea
+  {
+    id: "24",
+    name: "Calathea",
+    slug: "calathea",
+    category: "Indoor",
+    rating: 4.8,
+    reviewsCount: 110,
+    price: 699,
+    originalPrice: 899,
+    variants: ["Ceramic Pot"],
+    selectedVariant: "Ceramic Pot",
+    offers: ["22% OFF"],
+    images: ["/src/Image/calathea.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Calathea is a decorative indoor plant with vibrant patterned leaves, also known as prayer plant.",
+      whatsInBox: "1 Calathea in selected pot, care guide.",
+      careTips:
+        "Thrives in medium to low light, keep soil slightly moist, avoid direct sun.",
+      faqs: "Q: Why do Calathea leaves fold? A: They fold at night as part of their natural rhythm.",
+    },
+  },
+
+  // ✅ New Indoor Plant - Chinese Evergreen
+  {
+    id: "25",
+    name: "Chinese Evergreen",
+    slug: "chinese-evergreen",
+    category: "Indoor",
+    rating: 4.7,
+    reviewsCount: 95,
+    price: 499,
+    originalPrice: 599,
+    variants: ["Plastic Pot", "White Pot"],
+    selectedVariant: "Plastic Pot",
+    offers: ["17% OFF"],
+    images: ["/src/Image/chineseevergreen.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Chinese Evergreen is a hardy indoor plant with attractive leaves and air-purifying qualities.",
+      whatsInBox: "1 Chinese Evergreen in selected pot, care guide.",
+      careTips:
+        "Grows in low to bright light, water when soil dries slightly, avoid overwatering.",
+      faqs: "Q: Is Chinese Evergreen low-maintenance? A: Yes, it’s one of the easiest plants to care for.",
+    },
+  },
+
+  // ✅ New Indoor Plant - Croton
+  {
+    id: "26",
+    name: "Croton",
+    slug: "croton",
+    category: "Indoor",
+    rating: 4.6,
+    reviewsCount: 80,
+    price: 449,
+    originalPrice: 549,
+    variants: ["Plastic Pot"],
+    selectedVariant: "Plastic Pot",
+    offers: ["18% OFF"],
+    images: ["/src/Image/croton.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Croton is an eye-catching indoor plant with colorful leaves in shades of yellow, red, and green.",
+      whatsInBox: "1 Croton in selected pot, care guide.",
+      careTips:
+        "Needs bright light for vibrant color, water moderately, mist occasionally.",
+      faqs: "Q: Can Croton survive in shade? A: It prefers bright indirect light for best growth.",
+    },
+  },
+
+  // ✅ New Indoor Plant - Dieffenbachia (Dumb Cane)
+  {
+    id: "27",
+    name: "Dieffenbachia",
+    slug: "dieffenbachia",
+    category: "Indoor",
+    rating: 4.7,
+    reviewsCount: 85,
+    price: 499,
+    originalPrice: 599,
+    variants: ["Black Pot"],
+    selectedVariant: "Black Pot",
+    offers: ["15% OFF"],
+    images: ["/src/Image/dieffenbachia.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Dieffenbachia is a beautiful indoor plant with large patterned leaves, great for home decor.",
+      whatsInBox: "1 Dieffenbachia in selected pot, care guide.",
+      careTips:
+        "Thrives in indirect light, water regularly, avoid direct sun.",
+      faqs: "Q: Is Dieffenbachia toxic? A: Yes, keep away from pets and children.",
+    },
+  },
+
+  // ✅ New Indoor Plant - Anthurium
+  {
+    id: "28",
+    name: "Anthurium",
+    slug: "anthurium",
+    category: "Indoor",
+    rating: 4.9,
+    reviewsCount: 120,
+    price: 899,
+    originalPrice: 1099,
+    variants: ["White Pot"],
+    selectedVariant: "White Pot",
+    offers: ["18% OFF"],
+    images: ["/src/Image/anthurium.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Anthurium is a stunning indoor plant with glossy leaves and bright red flowers.",
+      whatsInBox: "1 Anthurium in selected pot, care guide.",
+      careTips:
+        "Prefers bright indirect light, water when soil is dry, maintain humidity.",
+      faqs: "Q: How long do Anthurium flowers last? A: Each bloom lasts up to 8 weeks.",
+    },
+  },
+
+  // ✅ New Indoor Plant - Bird’s Nest Fern
+  {
+    id: "29",
+    name: "Bird’s Nest Fern",
+    slug: "birds-nest-fern",
+    category: "Indoor",
+    rating: 4.6,
+    reviewsCount: 70,
+    price: 599,
+    originalPrice: 749,
+    variants: ["Ceramic Pot"],
+    selectedVariant: "Ceramic Pot",
+    offers: ["20% OFF"],
+    images: ["/src/Image/birdsnestfern.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Bird’s Nest Fern has wavy green fronds and thrives in humid indoor environments.",
+      whatsInBox: "1 Bird’s Nest Fern in selected pot, care guide.",
+      careTips:
+        "Keep in indirect light, maintain high humidity, water moderately.",
+      faqs: "Q: Is Bird’s Nest Fern safe for pets? A: Yes, it’s non-toxic to cats and dogs.",
+    },
+  },
+
+  // ✅ New Indoor Plant - Snake Plant (Indoor Variant)
+  {
+    id: "30",
+    name: "Snake Plant",
+    slug: "snake-plant",
+    category: "Indoor",
+    rating: 4.9,
+    reviewsCount: 180,
+    price: 499,
+    originalPrice: 699,
+    variants: ["Black Pot", "White Pot"],
+    selectedVariant: "Black Pot",
+    offers: ["28% OFF"],
+    images: ["/src/Image/snake.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about:
+        "Snake Plant is a hardy indoor plant that thrives in low light and requires minimal care.",
+      whatsInBox: "1 Snake Plant in selected pot, care guide.",
+      careTips:
+        "Tolerates low light, water sparingly, perfect for beginners.",
+      faqs: "Q: Can Snake Plant grow in the bedroom? A: Yes, it releases oxygen at night.",
+    },
+  },
+  {
+    id: "31",
+    name: "Bonsai Ficus Tree",
+    slug: "bonsai-ficus-tree",
+    category: "Indoor",
+    rating: 4.8,
+    reviewsCount: 145,
+    price: 2199,
+    originalPrice: 2499,
+    variants: ["Ceramic Pot", "Clay Pot"],
+    selectedVariant: "Ceramic Pot",
+    offers: ["Free delivery on bonsai range"],
+    images: ["/src/Image/bonsai-ficus.avif"],
+    frequentlyBoughtTogether: [
+      {
+        id: "12",
+        name: "Pruning Scissors",
+        price: 199,
+        image: "/images/pruning-scissors.jpg",
+      },
+    ],
+    details: {
+      about: "A classic Bonsai tree for artful indoor gardening.",
+      whatsInBox: "1 Bonsai Ficus Tree with pot, bonsai care manual.",
+      careTips: "Place in bright filtered light, prune regularly, water moderately.",
+      faqs: "Q: How tall does this bonsai grow? A: Usually up to 1–2 feet indoors.",
+    },
+  },
+  {
+    id: "32",
+    name: "Aloe Vera Plant",
+    slug: "aloe-vera-plant",
+    category: "Indoor",
+    rating: 4.5,
+    reviewsCount: 210,
+    price: 349,
+    originalPrice: 499,
+    variants: ["Plastic Pot"],
+    selectedVariant: "Plastic Pot",
+    offers: ["Buy 2 Get 1 Free"],
+    images: ["/src/Image/aloevera.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "A medicinal succulent plant with healing properties.",
+      whatsInBox: "1 Aloe Vera Plant in pot, care guide.",
+      careTips: "Needs bright light, water once in 2 weeks, avoid overwatering.",
+      faqs: "Q: Can Aloe Vera be used for skin care? A: Yes, it’s widely used in skin treatments.",
+    },
+  },
+  {
+    id: "33",
+    name: "Calathea Orbifolia",
+    slug: "calathea-orbifolia",
+    category: "Indoor",
+    rating: 4.7,
+    reviewsCount: 120,
+    price: 999,
+    originalPrice: 1299,
+    variants: ["Decor Pot"],
+    selectedVariant: "Decor Pot",
+    offers: ["10% OFF on prepaid orders"],
+    images: ["/src/Image/calathea-orbifolia.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "An ornamental indoor plant with stunning striped leaves.",
+      whatsInBox: "1 Calathea Orbifolia in selected pot, care guide.",
+      careTips: "Thrives in humidity, keep soil moist but not soggy.",
+      faqs: "Q: Can it be kept in AC rooms? A: Yes, but mist leaves to maintain humidity.",
+    },
+  },
+  {
+    id: "34",
+    name: "Syngonium Plant",
+    slug: "syngonium-plant",
+    category: "Indoor",
+    rating: 4.4,
+    reviewsCount: 98,
+    price: 399,
+    originalPrice: 599,
+    variants: ["White Pot"],
+    selectedVariant: "White Pot",
+    offers: ["15% OFF today"],
+    images: ["/src/Image/syngonium.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "A fast-growing air-purifying plant with arrow-shaped leaves.",
+      whatsInBox: "1 Syngonium Plant in pot, care instructions.",
+      careTips: "Bright indirect light, water twice a week, trim occasionally.",
+      faqs: "Q: Does Syngonium change leaf colors? A: Yes, young leaves are lighter and darken with age.",
+    },
+  },
+  {
+    id: "35",
+    name: "Rubber Plant Burgundy",
+    slug: "rubber-plant-burgundy",
+    category: "Indoor",
+    rating: 4.6,
+    reviewsCount: 130,
+    price: 899,
+    originalPrice: 1199,
+    variants: ["Black Pot"],
+    selectedVariant: "Black Pot",
+    offers: ["Flat 20% OFF"],
+    images: ["/src/Image/rubber.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "A bold indoor plant with glossy burgundy leaves.",
+      whatsInBox: "1 Rubber Plant Burgundy with pot, care guide.",
+      careTips: "Keep in indirect sunlight, water when topsoil dries.",
+      faqs: "Q: How tall can this grow? A: Up to 6–8 feet indoors with proper care.",
+    },
+  },
+  {
+    id: "36",
+    name: "Lavender Plant",
+    slug: "lavender-plant",
+    category: "Indoor",
+    rating: 4.5,
+    reviewsCount: 160,
+    price: 799,
+    originalPrice: 999,
     variants: ["Clay Pot"],
     selectedVariant: "Clay Pot",
-    offers: ["20% OFF"],
+    offers: ["Free aromatic seeds packet"],
+    images: ["/src/Image/lavender.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "A fragrant herb plant known for its soothing aroma.",
+      whatsInBox: "1 Lavender Plant in pot, care instructions.",
+      careTips: "Needs full sun, water moderately, prune after bloom.",
+      faqs: "Q: Can it grow indoors? A: Yes, if kept near a sunny window.",
+    },
+  },
+  {
+    id: "37",
+    name: "ZZ Plant",
+    slug: "zz-plant",
+    category: "Indoor",
+    rating: 4.8,
+    reviewsCount: 190,
+    price: 699,
+    originalPrice: 999,
+    variants: ["White Pot", "Black Pot"],
+    selectedVariant: "White Pot",
+    offers: ["25% OFF for prepaid"],
+    images: ["/src/Image/zz.avif"],
+    frequentlyBoughtTogether: [],
+    details: {
+      about: "A hardy indoor plant known for its shiny, waxy leaves.",
+      whatsInBox: "1 ZZ Plant in selected pot, care guide.",
+      careTips: "Low light tolerant, water once every 2–3 weeks.",
+      faqs: "Q: Is ZZ Plant safe for pets? A: No, it can be mildly toxic if ingested.",
+    },
+  },
+  {
+    id: "38",
+    name: "Rosemary Herb Plant",
+    slug: "rosemary-herb",
+    category: "Indoor",
+    rating: 4.3,
+    reviewsCount: 88,
+    price: 299,
+    originalPrice: 499,
+    variants: ["Grow Pot"],
+    selectedVariant: "Grow Pot",
+    offers: ["Buy 2 get 10% OFF"],
     images: ["/src/Image/rose.avif"],
     frequentlyBoughtTogether: [],
     details: {
-      about:
-        "Rose plants are classic garden favorites with fragrant blooms in multiple colors.",
-      whatsInBox: "1 Rose plant in pot, care guide.",
-      careTips:
-        "Requires 5-6 hours of direct sunlight, prune for healthy growth, water regularly.",
-      faqs: "Q: How often does Rose bloom? A: With proper care, roses can bloom multiple times a year.",
+      about: "An aromatic herb plant perfect for cooking and decoration.",
+      whatsInBox: "1 Rosemary Plant in pot, care instructions.",
+      careTips: "Needs sunlight, water sparingly, trim regularly.",
+      faqs: "Q: Can I use its leaves for cooking? A: Yes, fresh rosemary leaves are edible.",
     },
   },
-
-  // ✅ Outdoor Plant - Jasmine
   {
-    id: "16",
-    name: "Jasmine",
-    slug: "jasmine",
-    rating: 4.85,
-    reviewsCount: 100,
-    price: 299,
-    originalPrice: 349,
+    id: "39",
+    name: "Tulsi Plant",
+    slug: "tulsi-plant",
+    category: "Indoor",
+    rating: 4.9,
+    reviewsCount: 220,
+    price: 199,
+    originalPrice: 299,
     variants: ["Plastic Pot"],
     selectedVariant: "Plastic Pot",
-    offers: ["14% OFF"],
-    images: ["/src/Image/peacelily.avif"], // (replace with correct jasmine image later)
+    offers: ["Free shipping on 2+ units"],
+    images: ["/src/Image/tulsi.avif"],
     frequentlyBoughtTogether: [],
     details: {
-      about:
-        "Jasmine is a fragrant flowering plant popular for its aromatic white blooms.",
-      whatsInBox: "1 Jasmine plant in pot, care guide.",
-      careTips:
-        "Prefers sunlight and well-drained soil, water moderately, support vine growth if needed.",
-      faqs: "Q: Can Jasmine be grown indoors? A: Yes, if placed near a sunny window.",
+      about: "A sacred medicinal herb widely used in Ayurveda.",
+      whatsInBox: "1 Tulsi Plant in pot, care guide.",
+      careTips: "Place in sunlight, water daily, protect from frost.",
+      faqs: "Q: Which type of Tulsi is this? A: Rama Tulsi variety.",
     },
   },
-
-  // ✅ Outdoor Plant - Caladium
   {
-    id: "17",
-    name: "Caladium",
-    slug: "caladium",
-    rating: 4.85,
-    reviewsCount: 100,
-    price: 299,
-    originalPrice: 349,
-    variants: ["Plastic Pot"],
-    selectedVariant: "Plastic Pot",
-    offers: ["14% OFF"],
-    images: ["/src/Image/caladium.avif"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "Caladium is a tropical plant with colorful heart-shaped leaves, often grown for foliage.",
-      whatsInBox: "1 Caladium plant in pot, care guide.",
-      careTips:
-        "Best in partial shade, water when soil feels dry, avoid harsh sunlight.",
-      faqs: "Q: Does Caladium flower? A: Rarely, mostly grown for ornamental foliage.",
-    },
-  },
-
-  // ✅ Outdoor Plant - Agave
-  {
-    id: "18",
-    name: "Agave",
-    slug: "agave",
-    rating: 4.85,
-    reviewsCount: 100,
-    price: 299,
-    originalPrice: 349,
-    variants: ["Clay Pot"],
+    id: "40",
+    name: "Hibiscus Plant - Red",
+    slug: "hibiscus-red",
+     category: "Outdoor",
+    rating: 4.7,
+    reviewsCount: 140,
+    price: 599,
+    originalPrice: 799,
+    variants: ["Clay Pot", "Plastic Pot"],
     selectedVariant: "Clay Pot",
-    offers: ["14% OFF"],
-    images: ["/src/Image/agave.avif"],
+    offers: ["15% OFF on prepaid"],
+    images: ["/src/Image/hibiscus.avif"],
     frequentlyBoughtTogether: [],
     details: {
-      about:
-        "Agave is a hardy succulent plant with thick leaves, perfect for outdoor decoration.",
-      whatsInBox: "1 Agave plant in pot, care guide.",
-      careTips:
-        "Thrives in full sun, water sparingly, highly drought-tolerant.",
-      faqs: "Q: Does Agave need much care? A: Very low maintenance, ideal for beginners.",
+      about: "A vibrant flowering plant that adds color to your garden.",
+      whatsInBox: "1 Hibiscus Red Plant in pot, care instructions.",
+      careTips: "Needs 4–6 hours of sunlight daily, water regularly.",
+      faqs: "Q: Does it flower year-round? A: Mostly in summers and monsoon.",
     },
   },
+ // ✅ Outdoor Plant - Sunflower
+{
+  id: "41",
+  name: "Sunflower",
+  slug: "sunflower",
+   category: "Outdoor",
+  rating: 4.7,
+  reviewsCount: 120,
+  price: 199,
+  originalPrice: 249,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["20% OFF"],
+  images: ["/src/Image/sunflower.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Sunflowers are tall, bright flowering plants known for their large golden blooms that follow the sun.",
+    whatsInBox: "1 Sunflower plant in pot, care guide.",
+    careTips:
+      "Requires full sunlight, water regularly, thrives in well-drained fertile soil.",
+    faqs: "Q: How tall do sunflowers grow? A: Depending on type, they can grow from 1 ft to 12 ft tall.",
+  },
+},
 
-  // ✅ Outdoor Plant - Persian Shield
-  {
-    id: "19",
-    name: "Persian Shield",
-    slug: "persian-shield",
-    rating: 4.85,
-    reviewsCount: 100,
-    price: 299,
-    originalPrice: 349,
-    variants: ["Plastic Pot"],
-    selectedVariant: "Plastic Pot",
-    offers: ["14% OFF"],
-    images: ["/src/Image/persian sheild.jpg"],
-    frequentlyBoughtTogether: [],
-    details: {
-      about:
-        "Persian Shield is a stunning outdoor foliage plant with purple metallic leaves.",
-      whatsInBox: "1 Persian Shield plant in pot, care guide.",
-      careTips:
-        "Prefers partial shade, keep soil evenly moist, thrives in humid climates.",
-      faqs: "Q: Can Persian Shield survive indoors? A: Yes, if given enough humidity and indirect light.",
-    },
+// ✅ Outdoor Plant - Bougainvillea
+{
+  id: "42",
+  name: "Bougainvillea",
+  slug: "bougainvillea",
+   category: "Outdoor",
+  rating: 4.8,
+  reviewsCount: 135,
+  price: 349,
+  originalPrice: 449,
+  variants: ["Clay Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["22% OFF"],
+  images: ["/src/Image/bougainvillea.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Bougainvillea is a hardy ornamental plant with colorful papery bracts that bloom year-round in warm climates.",
+    whatsInBox: "1 Bougainvillea plant in pot, care guide.",
+    careTips:
+      "Needs full sun, prune regularly for shape, water moderately.",
+    faqs: "Q: Can Bougainvillea grow in pots? A: Yes, thrives well in containers with good sunlight.",
   },
+},
+
+// ✅ Outdoor Plant - Aloe Vera
+{
+  id: "43",
+  name: "Aloe Vera",
+  slug: "aloe-vera",
+   category: "Outdoor",
+  rating: 4.9,
+  reviewsCount: 160,
+  price: 249,
+  originalPrice: 299,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["17% OFF"],
+  images: ["/src/Image/aloevera.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Aloe Vera is a medicinal succulent plant widely known for its healing gel used for skin and health benefits.",
+    whatsInBox: "1 Aloe Vera plant in pot, care guide.",
+    careTips:
+      "Thrives in bright sunlight, water sparingly, drought tolerant.",
+    faqs: "Q: Can Aloe Vera survive indoors? A: Yes, place near a sunny window.",
+  },
+},
+
+// ✅ Outdoor Plant - Lavender
+{
+  id: "44",
+  name: "Lavender",
+  slug: "lavender",
+   category: "Outdoor",
+  rating: 4.85,
+  reviewsCount: 125,
+  price: 299,
+  originalPrice: 399,
+  variants: ["Clay Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["25% OFF"],
+  images: ["/src/Image/lavender.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Lavender is a fragrant flowering herb, popular for gardens and aromatherapy.",
+    whatsInBox: "1 Lavender plant in pot, care guide.",
+    careTips:
+      "Requires full sun, avoid overwatering, thrives in dry well-drained soil.",
+    faqs: "Q: Can Lavender repel insects? A: Yes, it naturally repels moths, mosquitoes, and flies.",
+  },
+},
+
+// ✅ Outdoor Plant - Chrysanthemum
+{
+  id: "45",
+  name: "Chrysanthemum",
+  slug: "chrysanthemum",
+   category: "Outdoor",
+  rating: 4.7,
+  reviewsCount: 98,
+  price: 249,
+  originalPrice: 349,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["28% OFF"],
+  images: ["/src/Image/chrysanthemum.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Chrysanthemums are vibrant flowering plants available in various colors, widely grown in outdoor gardens.",
+    whatsInBox: "1 Chrysanthemum plant in pot, care guide.",
+    careTips:
+      "Needs partial to full sun, water regularly, prune for dense blooms.",
+    faqs: "Q: How long do Chrysanthemum flowers last? A: With care, blooms can last several weeks.",
+  },
+},
+
+// ✅ Outdoor Plant - Money Plant (Outdoor)
+{
+  id: "46",
+  name: "Money Plant",
+  slug: "money-plant-outdoor",
+   category: "Outdoor",
+  rating: 4.6,
+  reviewsCount: 150,
+  price: 199,
+  originalPrice: 249,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["20% OFF"],
+  images: ["/src/Image/moneyplant.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Money Plant is considered a symbol of prosperity and is an easy-to-grow vine suitable for outdoors.",
+    whatsInBox: "1 Money Plant in pot, care guide.",
+    careTips:
+      "Prefers indirect sunlight, water moderately, grows quickly when supported.",
+    faqs: "Q: Is Money Plant good for vastu? A: Yes, often considered lucky in Indian homes.",
+  },
+},
+
+// ✅ Outdoor Plant - Petunia
+{
+  id: "47",
+  name: "Petunia",
+  slug: "petunia",
+   category: "Outdoor",
+  rating: 4.75,
+  reviewsCount: 90,
+  price: 149,
+  originalPrice: 199,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["25% OFF"],
+  images: ["/src/Image/petunia.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Petunia is a beautiful outdoor flowering plant that comes in many vibrant colors.",
+    whatsInBox: "1 Petunia plant in pot, care guide.",
+    careTips:
+      "Requires full sun, water moderately, blooms in spring and summer.",
+    faqs: "Q: Can Petunia be grown in hanging baskets? A: Yes, they are perfect for hanging planters.",
+  },
+},
+
+// ✅ Outdoor Plant - Ixora
+{
+  id: "48",
+  name: "Ixora",
+  slug: "ixora",
+   category: "Outdoor",
+  rating: 4.8,
+  reviewsCount: 100,
+  price: 299,
+  originalPrice: 399,
+  variants: ["Clay Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["25% OFF"],
+  images: ["/src/Image/ixora.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Ixora is a tropical shrub with small, bright flowers often used for hedges and landscaping.",
+    whatsInBox: "1 Ixora plant in pot, care guide.",
+    careTips:
+      "Requires sunlight, water moderately, trim to maintain shape.",
+    faqs: "Q: Does Ixora flower year-round? A: Yes, in warm climates it can bloom all year.",
+  },
+},
+// ✅ Outdoor Plant - Lavender
+{
+  id: "49",
+  name: "Lavender",
+  slug: "lavender",
+   category: "Outdoor",
+  rating: 4.9,
+  reviewsCount: 180,
+  price: 349,
+  originalPrice: 449,
+  variants: ["Clay Pot", "Plastic Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["22% OFF"],
+  images: ["/src/Image/lavender.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Lavender is a fragrant herb with purple flowers, widely used for decoration and essential oils.",
+    whatsInBox: "1 Lavender plant in selected pot, care guide.",
+    careTips:
+      "Needs full sun, water sparingly, prefers sandy well-drained soil.",
+    faqs: "Q: Is Lavender good for indoors? A: Best outdoors but can grow indoors with sunlight.",
+  },
+},
+
+// ✅ Outdoor Plant - Bougainvillea
+{
+  id: "50",
+  name: "Bougainvillea",
+  slug: "bougainvillea",
+   category: "Outdoor",
+  rating: 4.7,
+  reviewsCount: 130,
+  price: 299,
+  originalPrice: 399,
+  variants: ["Clay Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["25% OFF"],
+  images: ["/src/Image/bougainvillea.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Bougainvillea is a vibrant flowering climber with pink, purple, or red bracts.",
+    whatsInBox: "1 Bougainvillea plant in pot, care guide.",
+    careTips:
+      "Needs full sunlight, water moderately, provide support for climbing.",
+    faqs: "Q: Is Bougainvillea low maintenance? A: Yes, thrives with little care.",
+  },
+},
+
+// ✅ Outdoor Plant - Croton
+{
+  id: "51",
+  name: "Croton",
+  slug: "croton",
+   category: "Outdoor",
+  rating: 4.8,
+  reviewsCount: 115,
+  price: 349,
+  originalPrice: 449,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["22% OFF"],
+  images: ["/src/Image/croton.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Croton is an ornamental plant with colorful, variegated leaves, perfect for gardens.",
+    whatsInBox: "1 Croton plant in pot, care guide.",
+    careTips:
+      "Thrives in bright indirect light, water regularly but avoid overwatering.",
+    faqs: "Q: Can Croton grow in shade? A: Best in bright light for vibrant colors.",
+  },
+},
+
+// ✅ Outdoor Plant - Sunflower
+{
+  id: "52",
+  name: "Sunflower",
+  slug: "sunflower",
+   category: "Outdoor",
+  rating: 4.9,
+  reviewsCount: 210,
+  price: 199,
+  originalPrice: 299,
+  variants: ["Clay Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["33% OFF"],
+  images: ["/src/Image/sunflower.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Sunflowers are tall outdoor plants with large bright yellow blooms that follow the sun.",
+    whatsInBox: "1 Sunflower plant in pot, care guide.",
+    careTips:
+      "Needs 6-8 hours of direct sunlight, water daily, thrives in rich soil.",
+    faqs: "Q: How long do Sunflowers bloom? A: They bloom for weeks during summer.",
+  },
+},
+
+// ✅ Outdoor Plant - Chrysanthemum
+{
+  id: "53",
+  name: "Chrysanthemum",
+  slug: "chrysanthemum",
+   category: "Outdoor",
+  rating: 4.7,
+  reviewsCount: 125,
+  price: 299,
+  originalPrice: 399,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["25% OFF"],
+  images: ["/src/Image/chrysanthemum.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Chrysanthemums are colorful flowering plants that bloom in a variety of shades.",
+    whatsInBox: "1 Chrysanthemum plant in pot, care guide.",
+    careTips:
+      "Needs full sunlight, water daily during bloom season, prune after flowering.",
+    faqs: "Q: Do Chrysanthemums bloom every year? A: Yes, they are perennials with proper care.",
+  },
+},
+
+// ✅ Outdoor Plant - Ixora
+{
+  id: "54",
+  name: "Ixora",
+  slug: "ixora",
+   category: "Outdoor",
+  rating: 4.6,
+  reviewsCount: 105,
+  price: 249,
+  originalPrice: 349,
+  variants: ["Clay Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["29% OFF"],
+  images: ["/src/Image/ixora.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Ixora is a tropical shrub with clusters of small red, orange, or pink flowers.",
+    whatsInBox: "1 Ixora plant in pot, care guide.",
+    careTips:
+      "Loves sunlight, water moderately, grows well in acidic soil.",
+    faqs: "Q: Can Ixora grow indoors? A: Possible with enough sunlight.",
+  },
+},
+
+// ✅ Outdoor Plant - Coleus
+{
+  id: "55",
+  name: "Coleus",
+  slug: "coleus",
+   category: "Outdoor",
+  rating: 4.8,
+  reviewsCount: 100,
+  price: 249,
+  originalPrice: 349,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["29% OFF"],
+  images: ["/src/Image/coleus.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Coleus is a decorative plant with brightly patterned foliage, popular for outdoor gardens.",
+    whatsInBox: "1 Coleus plant in pot, care guide.",
+    careTips:
+      "Thrives in partial shade, water regularly, pinch tips for bushier growth.",
+    faqs: "Q: Can Coleus be grown indoors? A: Yes, with indirect sunlight.",
+  },
+},
+
+// ✅ Outdoor Plant - Poinsettia
+{
+  id: "56",
+  name: "Poinsettia",
+  slug: "poinsettia",
+   category: "Outdoor",
+  rating: 4.7,
+  reviewsCount: 98,
+  price: 299,
+  originalPrice: 399,
+  variants: ["Plastic Pot"],
+  selectedVariant: "Plastic Pot",
+  offers: ["25% OFF"],
+  images: ["/src/Image/poinsettia.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Poinsettia is a festive plant with bright red and green foliage, popular in winters.",
+    whatsInBox: "1 Poinsettia plant in pot, care guide.",
+    careTips:
+      "Prefers bright indirect sunlight, water when soil feels dry, avoid frost.",
+    faqs: "Q: Is Poinsettia toxic to pets? A: Yes, mildly toxic if ingested.",
+  },
+},
+
+// ✅ Outdoor Plant - Oleander
+{
+  id: "57",
+  name: "Oleander",
+  slug: "oleander",
+   category: "Outdoor",
+  rating: 4.6,
+  reviewsCount: 95,
+  price: 249,
+  originalPrice: 349,
+  variants: ["Clay Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["29% OFF"],
+  images: ["/src/Image/oleander.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Oleander is a hardy flowering shrub with pink, white, or red blossoms.",
+    whatsInBox: "1 Oleander plant in pot, care guide.",
+    careTips:
+      "Tolerates full sun, drought-resistant, water occasionally.",
+    faqs: "Q: Is Oleander safe? A: All parts are toxic if ingested.",
+  },
+},
+
+// ✅ Outdoor Plant - Lantana
+{
+  id: "58",
+  name: "Lantana",
+  slug: "lantana",
+   category: "Outdoor",
+  rating: 4.7,
+  reviewsCount: 102,
+  price: 249,
+  originalPrice: 349,
+  variants: ["Clay Pot"],
+  selectedVariant: "Clay Pot",
+  offers: ["29% OFF"],
+  images: ["/src/Image/lantana.avif"],
+  frequentlyBoughtTogether: [],
+  details: {
+    about:
+      "Lantana is a hardy outdoor plant with clusters of small multicolored flowers.",
+    whatsInBox: "1 Lantana plant in pot, care guide.",
+    careTips:
+      "Needs full sunlight, water moderately, prune to encourage bushy growth.",
+    faqs: "Q: Does Lantana attract butterflies? A: Yes, it's a butterfly magnet.",
+  },
+},
+
+
 ];
 
 export default products;

@@ -5,7 +5,7 @@ import products from "../Constant/productData";
 import ViewProductButton from "../Constant/ViewProductButton"; // ✅ common button
 
 // pick indoor plants slice from productData (adjust slice as needed)
-const indoorPlants = products.slice(4, 12); 
+const indoorPlants = products.filter(p => p.category === "Indoor");
 
 const IndoorPlants = () => {
   return (

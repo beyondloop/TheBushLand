@@ -5,8 +5,7 @@ import products from "../Constant/productData";
 import ViewProductButton from "../Constant/ViewProductButton"; // ✅ common button
 
 // pick outdoor plants slice from productData (adjust slice indexes as needed)
-const outdoorPlants = products.slice(12, 20);
-
+const outdoorPlants = products.filter(p => p.category === "Outdoor");   
 const OutdoorPlants = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
