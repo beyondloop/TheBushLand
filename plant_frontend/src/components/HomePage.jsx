@@ -19,9 +19,9 @@ const HomePage = () => {
       <HeroSlider />
       <FeaturedProducts />
       <BannersSection />
-      <BestSeller />
-      <IndoorPlants />
-      <OutdoorPlants />
+      <BestSeller limit={4}/>
+      <IndoorPlants limit={4}/>
+      <OutdoorPlants limit={4}/>
       <Accessories />
       <NewArrivals />
       <Testimonials />

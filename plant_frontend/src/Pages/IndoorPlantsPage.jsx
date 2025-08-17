@@ -1,27 +1,27 @@
-// src/pages/BestSellersPage.jsx
+// src/pages/IndoorPlantsPage.jsx
 import React, { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import products from "../Constant/productData";
 import ViewProductButton from "../Constant/ViewProductButton";
 
-const BestSellersPage = () => {
-   // 👇 Scroll to top when page loads
+const IndoorPlantsPage = () => {
+    // 👇 Scroll to top when page loads
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   // 🔹 Filter products by category
-  const bestSellerProducts = products.filter(
-    (item) => item.category === "BestSeller"
+  const indoorProducts = products.filter(
+    (item) => item.category === "Indoor"
   );
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-2xl font-bold text-center mb-8">All Bestsellers</h2>
+      <h2 className="text-2xl font-bold text-center mb-8">All Indoor Plants</h2>
 
-      {bestSellerProducts.length > 0 ? (
+      {indoorProducts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {bestSellerProducts.map((item) => (
+          {indoorProducts.map((item) => (
             <div
               key={item.id}
               className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col"
@@ -67,7 +67,7 @@ const BestSellersPage = () => {
           ))}
         </div>
       ) : (
-        <p className="text-center text-gray-600">No bestseller products found.</p>
+        <p className="text-center text-gray-600">No indoor plants found.</p>
       )}
 
       {/* Back Button */}
@@ -83,4 +83,4 @@ const BestSellersPage = () => {
   );
 };
 
-export default BestSellersPage;
+export default IndoorPlantsPage;

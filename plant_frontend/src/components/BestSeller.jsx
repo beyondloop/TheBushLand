@@ -1,20 +1,22 @@
-// src/components/Bestsellers.jsx
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import products from "../Constant/productData";
-import ViewProductButton from "../Constant/ViewProductButton"; // import here
+import ViewProductButton from "../Constant/ViewProductButton";
 import { Link } from "react-router-dom";
 
-const bestsellers = products.filter(p => p.category === "BestSeller"); // filter bestsellers
+const bestsellers = products.filter((p) => p.category === "BestSeller");
 
-const Bestsellers = () => {
+const Bestseller = ({ limit }) => {
+  // if limit passed → slice array, else show all
+  const displayProducts = limit ? bestsellers.slice(0, limit) : bestsellers;
+
   return (
-    
     <section className="max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-2xl font-bold text-center mb-8">Bestsellers</h2>
 
+      {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {bestsellers.map((item) => (
+        {displayProducts.map((item) => (
           <div
             key={item.id}
             className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col"
@@ -53,24 +55,25 @@ const Bestsellers = () => {
                 </div>
               </div>
 
-              {/* ✅ Use common button */}
               <ViewProductButton product={item} />
             </div>
           </div>
         ))}
       </div>
 
-      {/* View All Button */}
-<div className="mt-8 flex justify-center">
-  <Link
-    to="/bestsellers"
-    className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition"
-  >
-    View All
-  </Link>
-</div>
+      {/* Show View All button only if limited view */}
+      {limit && (
+        <div className="mt-8 flex justify-center">
+          <Link
+            to="/bestsellers"
+            className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition"
+          >
+            View All
+          </Link>
+        </div>
+      )}
     </section>
   );
 };
 
-export default Bestsellers;
+export default Bestseller;
