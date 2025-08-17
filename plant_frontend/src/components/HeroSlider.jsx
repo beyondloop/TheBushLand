@@ -30,7 +30,7 @@ const slides = [
 
 const HeroSlider = () => {
   return (
-<div className="w-full bg-[#02231A] h-[150px] md:h-[250px] lg:h-[300px] object-fit">
+<div className="w-full bg-[#02231A] h-[250px] md:h-[400px] lg:h-[500px] object-fit">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
