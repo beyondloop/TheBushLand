@@ -74,6 +74,7 @@ const BestSellersPage = () => {
       <div className="mt-8 flex justify-center">
         <Link
           to="/"
+           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="bg-gray-600 text-white px-6 py-2 rounded-full hover:bg-gray-700 transition"
         >
           Back to Home

@@ -14,6 +14,7 @@ import PlantOffers from '../components/PlantOffers';
 
 
 const HomePage = () => {
+  
   return (
     <>
       <HeroSlider />

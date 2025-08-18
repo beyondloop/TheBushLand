@@ -138,7 +138,7 @@ const products = [
     variants: ["Mini Pots"],
     selectedVariant: "Mini Pots",
     offers: ["Bundle Discount"],
-    images: ["/src/Image/succulentset.avif"],
+    images: ["/src/Image/succulent.avif"],
     frequentlyBoughtTogether: [],
     details: {
       about: "Set of assorted succulents for decoration.",
@@ -201,7 +201,7 @@ const products = [
     variants: ["Small Pot"],
     selectedVariant: "Small Pot",
     offers: ["Flat 50 OFF"],
-    images: ["/src/Image/cactus.avif"],
+    images: ["/src/Image/cactus mini.avif"],
     frequentlyBoughtTogether: [],
     details: {
       about: "Low-maintenance mini cactus perfect for gifting.",
@@ -222,7 +222,7 @@ const products = [
     variants: ["Plastic Pot", "Ceramic Pot"],
     selectedVariant: "Ceramic Pot",
     offers: ["15% OFF"],
-    images: ["/src/Image/parlorpalm.avif"],
+    images: ["/src/Image/parlour palm.avif"],
     frequentlyBoughtTogether: [],
     details: {
       about: "Compact palm with elegant fronds, great for indoors.",
@@ -269,7 +269,7 @@ const products = [
     variants: ["Hanging Pot", "Plastic Pot"],
     selectedVariant: "Hanging Pot",
     offers: ["22% OFF"],
-    images: ["/src/Image/moneyplant.avif"],
+    images: ["/src/Image/pothos.avif"],
     frequentlyBoughtTogether: [],
     details: {
       about:
@@ -294,7 +294,7 @@ const products = [
     variants: ["Plastic Pot"],
     selectedVariant: "Plastic Pot",
     offers: ["20% OFF"],
-    images: ["/src/Image/bostonfern.avif"],
+    images: ["/src/Image/boston fern.jpg"],
     frequentlyBoughtTogether: [],
     details: {
       about:
@@ -344,7 +344,7 @@ const products = [
     variants: ["Plastic Pot", "White Pot"],
     selectedVariant: "Plastic Pot",
     offers: ["17% OFF"],
-    images: ["/src/Image/chineseevergreen.avif"],
+    images: ["/src/Image/chinese evergreen.webp"],
     frequentlyBoughtTogether: [],
     details: {
       about:
@@ -394,7 +394,7 @@ const products = [
     variants: ["Black Pot"],
     selectedVariant: "Black Pot",
     offers: ["15% OFF"],
-    images: ["/src/Image/dieffenbachia.avif"],
+    images: ["/src/Image/Dieffenbachia.avif"],
     frequentlyBoughtTogether: [],
     details: {
       about:
@@ -444,7 +444,7 @@ const products = [
     variants: ["Ceramic Pot"],
     selectedVariant: "Ceramic Pot",
     offers: ["20% OFF"],
-    images: ["/src/Image/birdsnestfern.avif"],
+    images: ["/src/Image/birdsnestfern.webp"],
     frequentlyBoughtTogether: [],
     details: {
       about:
@@ -492,7 +492,7 @@ const products = [
     variants: ["Ceramic Pot", "Clay Pot"],
     selectedVariant: "Ceramic Pot",
     offers: ["Free delivery on bonsai range"],
-    images: ["/src/Image/bonsai-ficus.avif"],
+    images: ["/src/Image/bonsaificustree.webp"],
     frequentlyBoughtTogether: [
       {
         id: "12",
@@ -541,7 +541,7 @@ const products = [
     variants: ["Decor Pot"],
     selectedVariant: "Decor Pot",
     offers: ["10% OFF on prepaid orders"],
-    images: ["/src/Image/calathea-orbifolia.avif"],
+    images: ["/src/Image/calatheaorbifolia.avif"],
     frequentlyBoughtTogether: [],
     details: {
       about: "An ornamental indoor plant with stunning striped leaves.",
@@ -835,7 +835,7 @@ const products = [
   variants: ["Plastic Pot"],
   selectedVariant: "Plastic Pot",
   offers: ["20% OFF"],
-  images: ["/src/Image/moneyplant.avif"],
+  images: ["/src/Image/pothos.avif"],
   frequentlyBoughtTogether: [],
   details: {
     about:

@@ -9,7 +9,7 @@ const PlantOffers = () => {
         "Receive a curated box of handpicked plants, packaged with care, every month.",
       buttonText: "Start Saving",
       image:
-        "https://via.placeholder.com/200x200.png?text=Plant+Sub", // replace with actual
+        "src/Image/plantsubsription.avif", // replace with actual
       bgColor: "bg-green-50",
     },
     {
@@ -19,7 +19,7 @@ const PlantOffers = () => {
         "Earn coins and redeem them for exclusive discounts.",
       buttonText: "Refer a Friend",
       image:
-        "https://via.placeholder.com/200x200.png?text=Plant+Club", // replace with actual
+        "src/Image/reward.avif", // replace with actual
       bgColor: "bg-green-50",
     },
   ];

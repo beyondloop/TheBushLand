@@ -9,7 +9,7 @@ const Testimonials = () => {
       node. The packaging was great… Thank you @ugaoo for this delightful
       Monstera.. I'll be happy to buy it again.`,
       name: "Aishwarya Roy",
-      avatar: "https://via.placeholder.com/40x40.png?text=A", // replace with real image
+      avatar: "src/Image/av1.avif", // replace with real image
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ const Testimonials = () => {
       is what customer receives always And that is too big thing to manage
       packaging and quality. Love for ugaoo foundation will remain infinite.`,
       name: "Samarth Goyal",
-      avatar: "https://via.placeholder.com/40x40.png?text=S",
+      avatar:  "src/Image/av2.avif",
     },
     {
       id: 3,
@@ -25,8 +25,8 @@ const Testimonials = () => {
       is a small part of the lifecycle I buy online, from the store… Whether I chat
       on Instagram or email, the return… each and every time speaks the same
       language… That of love. Ugaoo is in my life.`,
-      name: "Customer Name",
-      avatar: "https://via.placeholder.com/40x40.png?text=C",
+      name: "Christoper",
+      avatar:  "src/Image/av3.avif",
     },
   ];
 
