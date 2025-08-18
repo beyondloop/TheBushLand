@@ -2,9 +2,16 @@
 import React, { useState } from "react";
 import QuantitySelector from "./QuantitySelector";
 import { Star, MapPin } from "lucide-react";
+import { useCart } from "../context/CartContext"; // 👈 import cart context
 
 export default function ProductInfo({ product }) {
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart(); // 👈 get addToCart
+
+  // handle Add to Cart
+  const handleAddToCart = () => {
+    addToCart({ ...product }, quantity); // 👈 pass product + quantity
+  };
 
   return (
     <div className="w-full md:w-1/2 md:pl-10">
@@ -66,14 +73,17 @@ export default function ProductInfo({ product }) {
         <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
       </div>
 
-      {/* Add to Cart */}
-      <div  className="flex gap-3">
-      <button className="mt-5 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-semibold">
-        Add to Cart
-      </button>
-       <button className="mt-5 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-semibold">
-        Buy Now
-      </button>
+      {/* Add to Cart / Buy Now */}
+      <div className="flex gap-3">
+        <button
+          onClick={handleAddToCart}
+          className="mt-5 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-semibold"
+        >
+          Add to Cart
+        </button>
+        <button className="mt-5 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-semibold">
+          Buy Now
+        </button>
       </div>
 
       {/* Pincode Check */}
@@ -84,7 +94,7 @@ export default function ProductInfo({ product }) {
           placeholder="Enter Pincode"
           className="border rounded-md px-3 py-2 w-40"
         />
-        <button className="text-green-700 font-semibold">Check</button> 
+        <button className="text-green-700 font-semibold">Check</button>
       </div>
 
       {/* Offers */}

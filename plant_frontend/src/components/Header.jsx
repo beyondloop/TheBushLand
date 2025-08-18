@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Search, ShoppingCart, User, ArrowUp, Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import ShoppingCartDrawer from "./ShoppingCart";
+import { useCart } from "../context/CartContext";
 
 const Header = () => {
   const navLinks = [
     "Plants",
-    // "Indoor Plants",
     "Pots & Planters",
     "Seeds",
     "Gardening",
@@ -17,18 +18,18 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [showScroll, setShowScroll] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // 👈 hamburger state
+  const [isOpen, setIsOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Show/hide scroll-to-top button
+  const { cartItems, removeItem } = useCart(); // 👈 from context
+
+  // Scroll button
   useEffect(() => {
-    const handleScroll = () => {
-      setShowScroll(window.scrollY > 200);
-    };
+    const handleScroll = () => setShowScroll(window.scrollY > 200);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle logo click
   const handleLogoClick = () => {
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -37,18 +38,15 @@ const Header = () => {
     }
   };
 
-  // Handle scroll-to-top button click
-  const scrollToTop = () => {
+  const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <>
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        {/* Top Offer Banner */}
+        {/* Banner */}
         <div className="bg-green-700 text-white text-sm text-center py-2 px-4 flex justify-center gap-[200px]">
           <span>🌱 Monsoon Sale – Flat 20% off on selected plants!</span>
-         
         </div>
 
         {/* Main Header */}
@@ -61,11 +59,11 @@ const Header = () => {
             The Bush.
           </div>
 
-          {/* Navigation Links (Desktop) */}
+          {/* Desktop Nav */}
           <nav className="hidden lg:flex space-x-6">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link, i) => (
               <a
-                key={index}
+                key={i}
                 href="#"
                 className="text-gray-700 hover:text-green-700 transition font-bold"
               >
@@ -74,7 +72,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Search & Icons */}
+          {/* Search + Icons */}
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex items-center border rounded-full px-3 py-1 bg-gray-50">
               <Search size={18} className="text-gray-500" />
@@ -84,10 +82,23 @@ const Header = () => {
                 className="bg-transparent outline-none px-2 text-sm"
               />
             </div>
-            <ShoppingCart className="cursor-pointer text-gray-700 hover:text-green-700" />
+
+            {/* Cart icon */}
+            <div className="relative">
+              <ShoppingCart
+                className="cursor-pointer text-gray-700 hover:text-green-700"
+                onClick={() => setIsCartOpen(true)}
+              />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">
+                  {cartItems.reduce((acc, item) => acc + item.quantity, 0)}
+                </span>
+              )}
+            </div>
+
             <User className="cursor-pointer text-gray-700 hover:text-green-700" />
 
-            {/* Hamburger Icon (Mobile) */}
+            {/* Hamburger */}
             <button
               className="lg:hidden text-gray-700 hover:text-green-700"
               onClick={() => setIsOpen(!isOpen)}
@@ -97,15 +108,15 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Nav (Hamburger Dropdown) */}
+        {/* Mobile nav */}
         {isOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200 shadow-md">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link, i) => (
               <a
-                key={index}
+                key={i}
                 href="#"
                 className="block px-4 py-3 text-sm text-gray-700 hover:text-green-700 border-b"
-                onClick={() => setIsOpen(false)} // close on click
+                onClick={() => setIsOpen(false)}
               >
                 {link}
               </a>
@@ -114,7 +125,15 @@ const Header = () => {
         )}
       </header>
 
-      {/* Scroll-to-top button */}
+      {/* ShoppingCart Drawer */}
+      <ShoppingCartDrawer
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        removeItem={removeItem}
+      />
+
+      {/* Scroll button */}
       {showScroll && (
         <button
           onClick={scrollToTop}
