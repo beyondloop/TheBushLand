@@ -16,8 +16,8 @@ const AboutUs = () => {
         <span className="font-semibold text-green-800"> fertilizers</span>, stylish 
         <span className="font-semibold text-green-800"> planters</span>, and essential 
         <span className="font-semibold text-green-800"> gardening tools</span> to help your garden thrive. 
-        Whether you’re a beginner or a seasoned gardener, Ugaoo has everything you need to grow. 
-        Start your plant journey with Ugaoo – where every leaf begins a new story.
+        Whether you’re a beginner or a seasoned gardener, The Bush has everything you need to grow. 
+        Start your plant journey with The Bush – where every leaf begins a new story.
       </p>
     </div>
   );

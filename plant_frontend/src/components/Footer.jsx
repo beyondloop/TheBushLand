@@ -34,14 +34,14 @@ const Footer = () => {
     },
     {
       title: "OFFERS & REWARDS",
-      links: ["Plant Parent Rewards Club", "Ugaoo Coupons"],
+      links: ["Plant Parent Rewards Club", "The Bush Coupons"],
     },
   ];
 
   const contactInfo = [
     { label: "WhatsApp us at:", value: "8087087224" },
     { label: "Call:", value: "+91-9129912991" },
-    { label: "Email:", value: "support@ugaoo.com" },
+    { label: "Email:", value: "support@The Bush.com" },
   ];
 
   const socialIcons = [
@@ -132,7 +132,7 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="max-w-7xl mx-auto px-4 mt-10 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm border-t border-gray-200 pt-4">
-        <p>© 2025, <span className="text-green-600">Ugaoo</span>. All rights reserved.</p>
+        <p>© 2025, <span className="text-green-600">The Bush</span>. All rights reserved.</p>
         <div className="flex space-x-2 mt-3 md:mt-0">
           <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-5" />
           <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" className="h-5" />

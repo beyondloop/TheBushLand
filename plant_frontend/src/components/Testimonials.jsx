@@ -6,25 +6,25 @@ const Testimonials = () => {
       id: 1,
       text: `After receiving this plant (Monstera Deliciosa), the plant was mature,
       tall as promised with a healthy growth… it was well hydrated and full of
-      node. The packaging was great… Thank you @ugaoo for this delightful
+      node. The packaging was great… Thank you @The Bush for this delightful
       Monstera.. I'll be happy to buy it again.`,
       name: "Aishwarya Roy",
       avatar: "src/Image/av1.avif", // replace with real image
     },
     {
       id: 2,
-      text: `It was always wonderful experience with ugaoo plants what they show
+      text: `It was always wonderful experience with The Bush plants what they show
       is what customer receives always And that is too big thing to manage
-      packaging and quality. Love for ugaoo foundation will remain infinite.`,
+      packaging and quality. Love for The Bush foundation will remain infinite.`,
       name: "Samarth Goyal",
       avatar:  "src/Image/av2.avif",
     },
     {
       id: 3,
-      text: `Ugaoo is a brand that will have a long life once plants and seeds quality
+      text: `The Bush is a brand that will have a long life once plants and seeds quality
       is a small part of the lifecycle I buy online, from the store… Whether I chat
       on Instagram or email, the return… each and every time speaks the same
-      language… That of love. Ugaoo is in my life.`,
+      language… That of love. The Bush is in my life.`,
       name: "Christoper",
       avatar:  "src/Image/av3.avif",
     },
