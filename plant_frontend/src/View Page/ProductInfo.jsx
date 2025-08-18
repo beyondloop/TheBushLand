@@ -33,9 +33,9 @@ export default function ProductInfo({ product }) {
         <span className="text-2xl font-bold text-green-700">
           ₹{product.price}
         </span>
-        {product.originalPrice && (
+        {product.oldPrice && (
           <span className="text-gray-500 line-through ml-3">
-            ₹{product.originalPrice}
+            ₹{product.oldPrice}
           </span>
         )}
       </div>
