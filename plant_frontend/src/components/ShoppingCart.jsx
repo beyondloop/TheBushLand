@@ -1,70 +1,34 @@
 // src/components/ShoppingCart.jsx
-import React, { useState } from "react";
+import React from "react";
 import { X, Trash2 } from "lucide-react";
-
-const initialCart = [
-  {
-    id: 1,
-    name: "Syngonium Pink Plant",
-    variant: "GroPot Ivory",
-    quantity: 1,
-    price: 249,
-    originalPrice: 299,
-    img: "/src/assets/syngonium.jpg",
-  },
-  {
-    id: 2,
-    name: "Chiku Plant with Grow Bag",
-    variant: "",
-    quantity: 2,
-    price: 899,
-    originalPrice: 1299,
-    img: "/src/assets/chiku.jpg",
-  },
-  {
-    id: 3,
-    name: "Jade Plant Mini",
-    variant: "Small GroPot Ivory",
-    quantity: 1,
-    price: 199,
-    originalPrice: 299,
-    img: "/src/assets/jade.jpg",
-  },
-  {
-    id: 4,
-    name: "Areca Palm Plant XL",
-    variant: "",
-    quantity: 1,
-    price: 999,
-    originalPrice: 1499,
-    img: "/src/assets/areca.jpg",
-  },
-];
+import { useCart } from "../context/CartContext"; // import your cart context
 
 const ShoppingCart = ({ isOpen, onClose }) => {
-  const [cart, setCart] = useState(initialCart);
+  const { cartItems, addToCart, removeItem } = useCart(); // use context
 
   const increaseQty = (id) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
+    const item = cartItems.find((i) => i.id === id);
+    if (item) addToCart(item); // reuse context addToCart to increase quantity
   };
 
   const decreaseQty = (id) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(item.quantity - 1, 1) } : item
-      )
-    );
+    const item = cartItems.find((i) => i.id === id);
+    if (item) {
+      if (item.quantity > 1) {
+        // decrease quantity
+        cartItems.forEach((i) => {
+          if (i.id === id) i.quantity -= 1;
+        });
+      } else {
+        removeItem(id); // remove if quantity becomes 0
+      }
+    }
   };
 
-  const removeItem = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const total = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <div
@@ -89,7 +53,7 @@ const ShoppingCart = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-lg font-semibold">
-            SHOPPING CART ({cart.length})
+            SHOPPING CART ({cartItems.length})
           </h2>
           <button onClick={onClose}>
             <X className="w-6 h-6 text-gray-600" />
@@ -98,10 +62,10 @@ const ShoppingCart = ({ isOpen, onClose }) => {
 
         {/* Cart Items */}
         <div className="px-4 space-y-4 overflow-y-auto flex-1">
-          {cart.length === 0 ? (
+          {cartItems.length === 0 ? (
             <p className="text-gray-500 text-center mt-10">Your cart is empty</p>
           ) : (
-            cart.map((item) => (
+            cartItems.map((item) => (
               <div key={item.id} className="flex items-center gap-3 border-b pb-3">
                 {/* Image */}
                 <img
@@ -154,7 +118,7 @@ const ShoppingCart = ({ isOpen, onClose }) => {
         </div>
 
         {/* Footer */}
-        {cart.length > 0 && (
+        {cartItems.length > 0 && (
           <div className="p-4 border-t bg-white">
             <div className="flex justify-between mb-3 font-semibold">
               <span>Total:</span>
