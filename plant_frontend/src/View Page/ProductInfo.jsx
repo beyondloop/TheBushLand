@@ -2,16 +2,19 @@
 import React, { useState } from "react";
 import QuantitySelector from "./QuantitySelector";
 import { Star, MapPin } from "lucide-react";
-import { useCart } from "../context/CartContext"; // 👈 import cart context
+import { useCart } from "../context/CartContext";
 
 export default function ProductInfo({ product }) {
   const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart(); // 👈 get addToCart
+  const [selectedSize, setSelectedSize] = useState("Medium"); // ✅ default size
+  const { addToCart } = useCart();
 
   // handle Add to Cart
   const handleAddToCart = () => {
-    addToCart({ ...product }, quantity); // 👈 pass product + quantity
+    addToCart({ ...product, size: selectedSize }, quantity); // include size
   };
+
+const sizeOptions = ["S", "M", "L"]; // ✅ define sizes as const
 
   return (
     <div className="w-full md:w-1/2 md:pl-10">
@@ -72,6 +75,28 @@ export default function ProductInfo({ product }) {
       <div className="mt-4">
         <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
       </div>
+
+      {/* ✅ Size Options */}
+
+<div className="mt-4">
+  <span className="block text-sm font-medium mb-2">Size:</span>
+  <div className="flex gap-3">
+    {sizeOptions.map((size) => (
+      <button
+        key={size}
+        onClick={() => setSelectedSize(size)}
+        className={`w-10 h-10 flex items-center justify-center rounded-full border font-semibold transition-all ${
+          selectedSize === size
+            ? "border-green-500 bg-green-50 text-green-700"
+            : "border-gray-300 text-gray-700 hover:bg-gray-100"
+        }`}
+      >
+        {size}
+      </button>
+    ))}
+  </div>
+</div>
+
 
       {/* Add to Cart / Buy Now */}
       <div className="flex gap-3">

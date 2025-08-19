@@ -6,13 +6,39 @@ import { useCart } from "../context/CartContext";
 
 const Header = () => {
   const navLinks = [
-    "Plants",
-    "Pots & Planters",
-    "Seeds",
-    "Gardening",
-    "Plant Care",
-    "Gifts",
-    "Candles & Fragnances",
+    {
+      label: "Plants",
+      subLinks: [
+        "Indoor Plants",
+        "Outdoor Plants",
+        "Flowering Plants",
+        "Low Maintenance Plants",
+        "Air Purifying Plants",
+        "Low Light Plants",
+        "Hanging Plants",
+        "Medicinal Plants",
+      ],
+    },
+    {
+      label: "Pots & Planters",
+      subLinks: ["Ceramic Pots", "Plastic Pots", "Hanging Planters", "Terracotta Pots", "Metal Planters"],
+    },
+    {
+      label: "Seeds",
+      subLinks: ["Flower Seeds", "Vegetable Seeds", "Herb Seeds", "Fruit Seeds", "Seed Kits"],
+    },
+    {
+      label: "Plant Care",
+      subLinks: ["Fertilizers", "Pesticides", "Soil & Compost", "Gardening Tools"],
+    },
+    {
+      label: "Gifts",
+      subLinks: ["Gift Sets", "Personalized Gifts", "Gift Cards", "Subscription Boxes", "Corporate Gifts"],
+    },
+    {
+      label: "Candles & Fragrances",
+      subLinks: ["Scented Candles", "Essential Oils", "Incense Sticks", "Aromatherapy"],
+    },
   ];
 
   const navigate = useNavigate();
@@ -21,7 +47,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const { cartItems, removeItem } = useCart(); // 👈 from context
+  const { cartItems, removeItem } = useCart();
 
   // Scroll button
   useEffect(() => {
@@ -59,19 +85,40 @@ const Header = () => {
             The Bush.
           </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex space-x-6">
-            {navLinks.map((link, i) => (
-              <a
-                key={i}
-                href="#"
-                className="text-gray-700 hover:text-green-700 transition font-bold"
-              >
-                {link}
-              </a>
-            ))}
-          </nav>
+         {/* Desktop Nav */}
+<nav className="hidden lg:flex space-x-8 relative">
+  {navLinks.map((link, i) =>
+    link.subLinks ? (
+      <div key={i} className="relative group">
+        {/* Parent label */}
+        <button className="flex items-center text-gray-700 hover:text-green-700 font-sans text-lg" onClick={() => setIsOpen(false)}>
+          {link.label}
+        </button>
 
+        {/* Dropdown */}
+        <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-56 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+          {link.subLinks.map((sub, j) => (
+            <a
+              key={j}
+              href="#"
+              className="block px-4 py-2 text-gray-600 hover:bg-green-600 hover:text-white rounded-md transition"
+            >
+              {sub}
+            </a>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <a
+        key={i}
+        href="#"
+        className="text-gray-700 hover:text-green-700 font-sans text-lg"
+      >
+        {link.label}
+      </a>
+    )
+  )}
+</nav>
           {/* Search + Icons */}
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex items-center border rounded-full px-3 py-1 bg-gray-50">
@@ -112,14 +159,35 @@ const Header = () => {
         {isOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200 shadow-md">
             {navLinks.map((link, i) => (
-              <a
-                key={i}
-                href="#"
-                className="block px-4 py-3 text-sm text-gray-700 hover:text-green-700 border-b"
-                onClick={() => setIsOpen(false)}
-              >
-                {link}
-              </a>
+              <div key={i} className="border-b">
+                {link.subLinks ? (
+                  <details>
+                    <summary className="px-4 py-3 text-sm text-gray-700 hover:text-green-700 cursor-pointer flex justify-between items-center">
+                      {link.label}
+                    </summary>
+                    <div className="pl-6 pb-2">
+                      {link.subLinks.map((sub, j) => (
+                        <a
+                          key={j}
+                          href="#"
+                          className="block py-2 text-sm text-gray-600 hover:text-green-700"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {sub}
+                        </a>
+                      ))}
+                    </div>
+                  </details>
+                ) : (
+                  <a
+                    href="#"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-green-700"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                )}
+              </div>
             ))}
           </div>
         )}
