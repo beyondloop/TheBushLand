@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Search, ShoppingCart, User, ArrowUp, Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ShoppingCartDrawer from "./ShoppingCart";
@@ -21,11 +21,23 @@ const Header = () => {
     },
     {
       label: "Pots & Planters",
-      subLinks: ["Ceramic Pots", "Plastic Pots", "Hanging Planters", "Terracotta Pots", "Metal Planters"],
+      subLinks: [
+        "Ceramic Pots",
+        "Plastic Pots",
+        "Hanging Planters",
+        "Terracotta Pots",
+        "Metal Planters",
+      ],
     },
     {
       label: "Seeds",
-      subLinks: ["Flower Seeds", "Vegetable Seeds", "Herb Seeds", "Fruit Seeds", "Seed Kits"],
+      subLinks: [
+        "Flower Seeds",
+        "Vegetable Seeds",
+        "Herb Seeds",
+        "Fruit Seeds",
+        "Seed Kits",
+      ],
     },
     {
       label: "Plant Care",
@@ -33,7 +45,13 @@ const Header = () => {
     },
     {
       label: "Gifts",
-      subLinks: ["Gift Sets", "Personalized Gifts", "Gift Cards", "Subscription Boxes", "Corporate Gifts"],
+      subLinks: [
+        "Gift Sets",
+        "Personalized Gifts",
+        "Gift Cards",
+        "Subscription Boxes",
+        "Corporate Gifts",
+      ],
     },
     {
       label: "Candles & Fragrances",
@@ -46,14 +64,28 @@ const Header = () => {
   const [showScroll, setShowScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   const { cartItems, removeItem } = useCart();
+
+  const navRef = useRef(null);
 
   // Scroll button
   useEffect(() => {
     const handleScroll = () => setShowScroll(window.scrollY > 200);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
   }, []);
 
   const handleLogoClick = () => {
@@ -85,40 +117,43 @@ const Header = () => {
             The Bush.
           </div>
 
-         {/* Desktop Nav */}
-<nav className="hidden lg:flex space-x-8 relative">
-  {navLinks.map((link, i) =>
-    link.subLinks ? (
-      <div key={i} className="relative group">
-        {/* Parent label */}
-        <button className="flex items-center text-gray-700 hover:text-green-700 font-sans text-lg" onClick={() => setIsOpen(false)}>
-          {link.label}
-        </button>
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex space-x-8 relative" ref={navRef}>
+            {navLinks.map((link, i) => (
+              <div key={i} className="relative">
+                {/* Parent label */}
+                <button
+                  className="flex items-center text-gray-700 hover:text-green-700 font-sans text-lg"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenDropdown(openDropdown === i ? null : i);
+                  }}
+                >
+                  {link.label}
+                </button>
 
-        {/* Dropdown */}
-        <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-56 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
-          {link.subLinks.map((sub, j) => (
-            <a
-              key={j}
-              href="#"
-              className="block px-4 py-2 text-gray-600 hover:bg-green-600 hover:text-white rounded-md transition"
-            >
-              {sub}
-            </a>
-          ))}
-        </div>
-      </div>
-    ) : (
-      <a
-        key={i}
-        href="#"
-        className="text-gray-700 hover:text-green-700 font-sans text-lg"
-      >
-        {link.label}
-      </a>
-    )
-  )}
-</nav>
+                {/* Dropdown */}
+                {openDropdown === i && link.subLinks && (
+                  <div
+                    className="absolute top-full left-0 mt-2 bg-white shadow-lg py-2 w-56 z-50"
+                    onMouseLeave={() => setOpenDropdown(null)} // 👈 closes when mouse leaves dropdown
+                  >
+                    {link.subLinks.map((sub, j) => (
+                      <a
+                        key={j}
+                        href="#"
+                        onClick={(e) => e.preventDefault()}
+                        className="block px-4 py-2 text-gray-600 hover:bg-green-600 hover:text-white transition"
+                      >
+                        {sub}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+
           {/* Search + Icons */}
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex items-center border rounded-full px-3 py-1 bg-gray-50">

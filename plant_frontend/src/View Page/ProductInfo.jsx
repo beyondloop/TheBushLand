@@ -1,20 +1,38 @@
 // src/components/ProductInfo.jsx
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import QuantitySelector from "./QuantitySelector";
 import { Star, MapPin } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 export default function ProductInfo({ product }) {
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("Medium"); // ✅ default size
+  const [selectedSize, setSelectedSize] = useState("S"); // ✅ default = Small
   const { addToCart } = useCart();
+
+  const sizeOptions = ["S", "M", "L"];
+
+  // ✅ Calculate both prices dynamically
+  const { finalPrice, finalOldPrice } = useMemo(() => {
+    let basePrice = product.price; // small price
+    let baseOldPrice = product.oldPrice || null;
+
+    let multiplier = 1;
+    if (selectedSize === "M") multiplier = 1.3; // +30%
+    if (selectedSize === "L") multiplier = 1.3 * 1.2; // +30%, then +20%
+
+    return {
+      finalPrice: Math.round(basePrice * multiplier),
+      finalOldPrice: baseOldPrice ? Math.round(baseOldPrice * multiplier) : null,
+    };
+  }, [selectedSize, product.price, product.oldPrice]);
 
   // handle Add to Cart
   const handleAddToCart = () => {
-    addToCart({ ...product, size: selectedSize }, quantity); // include size
+    addToCart(
+      { ...product, size: selectedSize, price: finalPrice, oldPrice: finalOldPrice },
+      quantity
+    );
   };
-
-const sizeOptions = ["S", "M", "L"]; // ✅ define sizes as const
 
   return (
     <div className="w-full md:w-1/2 md:pl-10">
@@ -38,14 +56,14 @@ const sizeOptions = ["S", "M", "L"]; // ✅ define sizes as const
         </span>
       </div>
 
-      {/* Price */}
+      {/* Price (Dynamic) */}
       <div className="mt-3">
         <span className="text-2xl font-bold text-green-700">
-          ₹{product.price}
+          ₹{finalPrice}
         </span>
-        {product.oldPrice && (
+        {finalOldPrice && (
           <span className="text-gray-500 line-through ml-3">
-            ₹{product.oldPrice}
+            ₹{finalOldPrice}
           </span>
         )}
       </div>
@@ -77,26 +95,24 @@ const sizeOptions = ["S", "M", "L"]; // ✅ define sizes as const
       </div>
 
       {/* ✅ Size Options */}
-
-<div className="mt-4">
-  <span className="block text-sm font-medium mb-2">Size:</span>
-  <div className="flex gap-3">
-    {sizeOptions.map((size) => (
-      <button
-        key={size}
-        onClick={() => setSelectedSize(size)}
-        className={`w-10 h-10 flex items-center justify-center rounded-full border font-semibold transition-all ${
-          selectedSize === size
-            ? "border-green-500 bg-green-50 text-green-700"
-            : "border-gray-300 text-gray-700 hover:bg-gray-100"
-        }`}
-      >
-        {size}
-      </button>
-    ))}
-  </div>
-</div>
-
+      <div className="mt-4">
+        <span className="block text-sm font-medium mb-2">Size:</span>
+        <div className="flex gap-3">
+          {sizeOptions.map((size) => (
+            <button
+              key={size}
+              onClick={() => setSelectedSize(size)}
+              className={`w-10 h-10 flex items-center justify-center rounded-full border font-semibold transition-all ${
+                selectedSize === size
+                  ? "border-green-500 bg-green-50 text-green-700"
+                  : "border-gray-300 text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              {size}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Add to Cart / Buy Now */}
       <div className="flex gap-3">

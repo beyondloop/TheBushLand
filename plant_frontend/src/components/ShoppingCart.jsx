@@ -4,27 +4,9 @@ import { X, Trash2 } from "lucide-react";
 import { useCart } from "../context/CartContext"; // import your cart context
 
 const ShoppingCart = ({ isOpen, onClose }) => {
-  const { cartItems, addToCart, removeItem } = useCart(); // use context
+  const { cartItems, addToCart, removeItem, decreaseQty, increaseQty } = useCart(); // ✅ use context
 
-  const increaseQty = (id) => {
-    const item = cartItems.find((i) => i.id === id);
-    if (item) addToCart(item); // reuse context addToCart to increase quantity
-  };
-
-  const decreaseQty = (id) => {
-    const item = cartItems.find((i) => i.id === id);
-    if (item) {
-      if (item.quantity > 1) {
-        // decrease quantity
-        cartItems.forEach((i) => {
-          if (i.id === id) i.quantity -= 1;
-        });
-      } else {
-        removeItem(id); // remove if quantity becomes 0
-      }
-    }
-  };
-
+  // ✅ Total respects size variations
   const total = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -65,49 +47,67 @@ const ShoppingCart = ({ isOpen, onClose }) => {
           {cartItems.length === 0 ? (
             <p className="text-gray-500 text-center mt-10">Your cart is empty</p>
           ) : (
-            cartItems.map((item) => (
-              <div key={item.id} className="flex items-center gap-3 border-b pb-3">
+            cartItems.map((item, index) => (
+              <div
+                key={`${item.id}-${item.size || "default"}-${index}`}
+                className="flex items-center gap-3 border-b pb-3"
+              >
                 {/* Image */}
                 <img
                   src={item.img}
                   alt={item.name}
                   className="w-16 h-16 object-cover rounded-lg"
                 />
+
                 {/* Details */}
                 <div className="flex-1">
-                  <h3 className="font-medium text-sm line-clamp-1">{item.name}</h3>
+                  <h3 className="font-medium text-sm line-clamp-1">
+                    {item.name}
+                  </h3>
+
                   {item.variant && (
-                    <p className="text-xs text-gray-500">{item.variant}</p>
+                    <p className="text-xs text-gray-500">
+                      Color: {item.variant}
+                    </p>
                   )}
+
+                  {item.size && (
+                    <p className="text-xs text-gray-500">Size: {item.size}</p>
+                  )}
+
+                  {/* Quantity controls */}
                   <div className="flex items-center gap-2 mt-1">
                     <button
-                      onClick={() => decreaseQty(item.id)}
+                      onClick={() => decreaseQty(item.id, item.size)} // ✅ fixed
                       className="border px-2 rounded text-sm"
                     >
                       -
                     </button>
                     <span className="text-sm">{item.quantity}</span>
                     <button
-                      onClick={() => increaseQty(item.id)}
+                      onClick={() => increaseQty(item.id, item.size)} // ✅ fixed
                       className="border px-2 rounded text-sm"
                     >
                       +
                     </button>
                   </div>
+
+                  {/* Price */}
                   <div className="flex items-center gap-2 mt-1">
                     <span className="font-semibold text-green-600">
                       ₹{item.price * item.quantity}
                     </span>
                     {item.originalPrice && (
                       <span className="text-gray-400 line-through text-sm">
-                        ₹{item.originalPrice}
+                        ₹{item.originalPrice * item.quantity}
                       </span>
                     )}
                   </div>
                 </div>
+
                 {/* Remove */}
                 <button
-                  onClick={() => removeItem(item.id)}
+                  onClick={() => removeItem(item.id, item.size)}
                   className="text-gray-400 hover:text-red-500"
                 >
                   <Trash2 className="w-5 h-5" />
